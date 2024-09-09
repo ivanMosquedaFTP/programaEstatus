@@ -69,6 +69,19 @@
       </div>
     </section>
 
+    <section>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <br> <br>
+          <center>
+            <h1>Agregar egresado</h1>
+          </center>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+    </section>
+
     <section class="formulario">
       <div class="row">
         <div class="col-md-1"></div>
@@ -81,15 +94,53 @@
                 21031178</div>
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <label for="nombre" class="form-label">Nombre completo</label>
+              <input type="text" class="form-control" id="nombre">
             </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <label for="especialidad">Especialidad</label>
+            <select class="form-select" aria-label="Seleccion de la especialidad" id="especialidad">
+              <option selected>Seleccione una opción</option>
+              <option value="IINFO">Ingenieria en informatica</option>
+              <option value="LINFO">Licenciatura en informatica</option>
+              <option value="ISC">Ingenieria en sistemas computacionales</option>
+            </select>
+            <br>
+            <label for="opcTitulacion">Opción de titulación</label>
+            <select class="form-select" aria-label="Seleccion de la opción de titulación" id="opcTitulacion">
+              <option selected>Seleccione una opción</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="11a">11a</option>
+              <option value="11b">11b</option>
+              <option value="11c">11c</option>
+              <option value="11d">11d</option>
+            </select>
+            <br>
+            <label for="estatus">Estatus</label>
+            <select class="form-select" aria-label="Seleccion del estatus" id="estatus">
+              <option selected>Seleccione una opción</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+            <br>
+            <center>
+              <label for="fechaExamenTitulacion">Fecha del examen de titulación</label>
+              <input type="date" id="fechaExamenTitulacion">
+              <br> <br>
+            </center>
           </form>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <button type="submit" class="btn btn-primary w-100">Agregar</button>
         </div>
         <div class="col-md-1"></div>
       </div>
