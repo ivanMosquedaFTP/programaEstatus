@@ -17,7 +17,7 @@
   <header>
     <div class="p-5 mb-4 bg-body-tertiary rounded-3">
       <div class="container-fluid py-5 jumbotron">
-        <h1 class="display-5 fw-bold">Mostrando la informacion del egresado con numero de control: 21031178</h1>
+        <h1 class="display-5 fw-bold">Consulta por número de control.</h1>
       </div>
     </div>
   </header>
@@ -27,6 +27,13 @@
       <div class="row">
         <div class="col-md-1"> </div>
         <div class="col-md-10">
+          <form action="#" method="POST">
+            <label for="noControl" class="form-label fw-bold">Ingrese el número de control que desea consultar:</label>
+            <input type="number" class="form-control" name="noControl" id="noControl" placeholder="Ejemplo: 21031178">
+            <div id="noControlHelp" class="form-text">Introduzca un número de control válido</div>
+            <button type="submit" class="btn btn-primary w-100">Aceptar</button>
+          </form>
+          <br><br>
           <table class="table table-striped" id="tblEstatus">
             <thead>
               <tr>
@@ -40,12 +47,12 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">1</th>
+                <th scope="row">21031178</th>
                 <td>Juan</td>
                 <td>ISC</td>
                 <td>11b</td>
                 <td>1</td>
-                <td>01/01/2025</td>
+                <td>No es posible establecer la fecha</td>
               </tr>
             </tbody>
           </table>
