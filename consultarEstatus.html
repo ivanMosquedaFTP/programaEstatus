@@ -27,6 +27,11 @@
       <div class="row">
         <div class="col-md-1"> </div>
         <div class="col-md-10">
+          <form action="#" method="POST">
+            <label for="estatus" class="form-label fw-bold">Ingrese el estatus que desea buscar</label>
+            <input type="number" class="form-control" name="estatus" id="estatus" placeholder="Ejemplo: 4">
+            <div id="noControlHelp" class="form-text">Introduzca un valor dentro del siguiente rango: 1-6</div>
+          </form>
           <table class="table table-striped" id="tblEstatus">
             <thead>
               <tr>
