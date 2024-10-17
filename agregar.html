@@ -30,7 +30,7 @@
           <form action="POST">
             <div class="mb-3">
               <label for="noControl" class="form-label fw-bold">Numero de control:</label>
-              <input type="number" class="form-control" id="noControl" aria-describedby="noControlHelp">
+              <input type="text" class="form-control" id="noControl" aria-describedby="noControlHelp">
               <div id="noControlHelp" class="form-text">No introduzca letras, ejemplo de numero de control correcto
                 21031178</div>
             </div>
@@ -46,6 +46,10 @@
               <option value="ISC">ISC</option>
             </select>
             <br>
+            <div class="mb-3">
+              <label for="nombre_proyecto" class="form-label fw-bold">Nombre del proyecto:</label>
+              <input type="text" class="form-control" id="nombre_proyecto">
+            </div>
             <label for="opcTitulacion" class="form-label fw-bold">Opción de titulación:</label>
             <select class="form-select" aria-label="Seleccion de la opción de titulación" id="opcTitulacion">
               <option selected>Seleccione una opción</option>
@@ -65,6 +69,22 @@
               <option value="11d">XId - titulación integral</option>
             </select>
             <br>
+            <div class="mb-3">
+              <label for="nombre_asesor" class="form-label fw-bold">Nombre del asesor:</label>
+              <input type="text" class="form-control" id="nombre_asesor">
+            </div>
+            <div class="mb-3">
+              <label for="nombre_sinodal1" class="form-label fw-bold">Sinodal 1:</label>
+              <input type="text" class="form-control" id="nombre_sinodal1">
+            </div>
+            <div class="mb-3">
+              <label for="nombre_sinodal2" class="form-label fw-bold">Sinodal 2:</label>
+              <input type="text" class="form-control" id="nombre_sinodal2">
+            </div>
+            <div class="mb-3">
+              <label for="nombre_sinodal3" class="form-label fw-bold">Sinodal 3:</label>
+              <input type="text" class="form-control" id="nombre_sinodal3">
+            </div>
             <label for="estatus" class="form-label fw-bold">Estatus:</label>
             <select class="form-select" aria-label="Seleccion del estatus" id="estatus">
               <option selected>Seleccione una opción</option>
@@ -77,11 +97,11 @@
               <option value="6">6 titulado</option>
             </select>
             <br>
-            <center>
-              <label for="fechaExamenTitulacion" class="form-label fw-bold">Fecha del examen de titulación:</label>
-              <input type="date" id="fechaExamenTitulacion">
-              <br> <br>
-            </center>
+            <!-- <center> -->
+            <!--   <label for="fechaExamenTitulacion" class="form-label fw-bold">Fecha del examen de titulación:</label> -->
+            <!--   <input type="date" id="fechaExamenTitulacion"> -->
+            <!--   <br> <br> -->
+            <!-- </center> -->
           </form>
         </div>
         <div class="col-md-4"></div>
