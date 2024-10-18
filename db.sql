@@ -1,1 +1,0 @@
-/home/toreve/DataGripProjects/proyectoIngSoftware/db.sql
