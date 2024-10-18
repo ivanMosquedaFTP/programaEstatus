@@ -29,7 +29,13 @@
         <div class="col-md-10">
           <form action="#" method="POST">
             <label for="opc" class="form-label fw-bold">Ingrese la opción de titulación que desea consultar:</label>
-            <input type="text" class="form-control" name="opc" id="opc" placeholder="Ejemplo: 11b">
+            <select class="form-select" aria-label="Seleccion de la especialidad" id="especialidad">
+              <option selected>Seleccione una opción</option>
+              <!-- TODO:corregir -->
+              <option value="IINFO">IINFO</option>
+              <option value="LINFO">LINFO</option>
+              <option value="ISC">ISC</option>
+            </select>
             <div id="noControlHelp" class="form-text">Introduzca una opción de titulación válida</div>
             <button type="submit" class="btn btn-primary w-100">Aceptar</button>
           </form>
@@ -40,7 +46,12 @@
                 <th scope="col">no. Control</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Especialidad</th>
+                <th scope="col">Nombre del proyecto</th>
                 <th scope="col">Opc. Titulación</th>
+                <th scope="col">Nombre del asesor</th>
+                <th scope="col">Sinodal 1</th>
+                <th scope="col">Sinodal 2</th>
+                <th scope="col">Sinodal 3</th>
                 <th scope="col">Estatus</th>
                 <th scope="col">fecha de examen de titulación</th>
               </tr>
