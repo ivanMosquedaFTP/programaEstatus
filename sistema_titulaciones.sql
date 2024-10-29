@@ -1,0 +1,12 @@
+create table egresado(no_control int auto_increment primary key, nombre_completo varchar(100),
+    CHECK (nombre_completo REGEXP '^[A-ZÑÁÉÍÓÚÜ][a-zñáéíóúü]+( [A-ZÑÁÉÍÓÚÜ][a-zñáéíóúü]+){1,3}$',
+    especialidad varchar(100),
+    nombre_proyecto varchar(100),
+    opc_titulacion varchar(100),
+    status tinyint,
+    fecha_examen date,
+    asesor varchar(100),
+    sinodal1 varchar(100),
+    sinodal2 varchar(100),
+    sinodal3 varchar(100),
+));
