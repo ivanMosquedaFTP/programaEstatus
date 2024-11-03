@@ -1,0 +1,74 @@
+inicio
+  mostrar "Agregar un egresado"
+
+  proceso capturaDatos
+    mostrar formulario de captura
+
+    capturar "numeroDeControl"
+      entrada del usuario en campo de texto "noControl"
+
+    capturar "nombreCompleto"
+      entrada del usuario en campo de texto "nombre"
+
+    capturar "especialidad"
+      mostrar opciones: 
+        - IINFO
+        - LINFO
+        - ISC
+      seleccion del usuario en campo de selección "especialidad"
+
+    capturar "nombreDelProyecto"
+      entrada del usuario en campo de texto "nombre_proyecto"
+
+    capturar "opcionDeTitulacion"
+      mostrar opciones:
+        - 1 - I tesis profesional
+        - 2 - II libros de texto o prototipos didacticos
+        - 3 - III proyecto de investigacion
+        - 4 - IV diseño o rediseño de equipo, aparato o maquinaria
+        - 5 - V cursos especiales de titulacion
+        - 6 - VI examen global por areas de conocimiento
+        - 7 - VII memoria de experiencia profesional
+        - 8 - VIII escolaridad por promedio
+        - 9 - IX escolaridad por estudios de posgrado
+        - 10 - X memoria de residencia profesional
+        - 11a - XIa titulacion integral
+        - 11b - XIb titulacion integral
+        - 11c - XIc titulacion integral
+        - 11d - XId titulacion integral
+      seleccion del usuario en campo de selección "opcTitulacion"
+
+    capturar "nombreDelAsesor"
+      entrada del usuario en campo de texto "nombre_asesor"
+
+    capturar "sinodal1"
+      entrada del usuario en campo de texto "nombre_sinodal1"
+
+    capturar "sinodal2"
+      entrada del usuario en campo de texto "nombre_sinodal2"
+
+    capturar "sinodal3"
+      entrada del usuario en campo de texto "nombre_sinodal3"
+
+    capturar "estatus"
+      mostrar opciones:
+        - 0 - en espera de documentos de solicitud
+        - 1 - realizando oficio de aprobacion
+        - 2 - oficio de aprobacion entregado
+        - 3 - oficio de NO INCONVENIENCIA recibido
+        - 4 - realizando oficio de AVISO DE ACTO RECEPCIONAL
+        - 5 - envio de AVISO DE ACTO RECEPCIONAL a egresado y jurado
+        - 6 - titulado
+      seleccion del usuario en campo de selección "estatus"
+
+    si el usuario presiona el botón "agregar"
+      enviar datos capturados al servidor
+      mostrar mensaje de exito
+    fin si
+
+    si el usuario presiona "volverAlInicio"
+      redirigir a la página "index.html"
+    fin si
+  fin proceso
+
+fin

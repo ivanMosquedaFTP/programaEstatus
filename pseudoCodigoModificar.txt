@@ -1,0 +1,89 @@
+inicio
+  mostrar "Modificar la informacion de un egresado"
+
+  proceso editarDatos
+    mostrar formulario de modificacion
+
+    cargarDatosExistentes
+      cargar y mostrar los datos actuales del egresado:
+        mostrar "numeroDeControl" en el campo de texto "noControl"
+        mostrar "nombreCompleto" en el campo de texto "nombre"
+        mostrar "especialidad" seleccionada en el campo de seleccion "especialidad"
+        mostrar "nombreDelProyecto" en el campo de texto "nombre_proyecto"
+        mostrar "opcionDeTitulacion" seleccionada en el campo de seleccion "opcTitulacion"
+        mostrar "nombreDelAsesor" en el campo de texto "nombre_asesor"
+        mostrar "sinodal1" en el campo de texto "nombre_sinodal1"
+        mostrar "sinodal2" en el campo de texto "nombre_sinodal2"
+        mostrar "sinodal3" en el campo de texto "nombre_sinodal3"
+        mostrar "estatus" seleccionado en el campo de seleccion "estatus"
+    
+    capturar "numeroDeControl"
+      permitir modificacion en el campo de texto "noControl"
+
+    capturar "nombreCompleto"
+      permitir modificacion en el campo de texto "nombre"
+
+    capturar "especialidad"
+      permitir seleccion de nuevas opciones en "especialidad":
+        - IINFO
+        - LINFO
+        - ISC
+
+    capturar "nombreDelProyecto"
+      permitir modificacion en el campo de texto "nombre_proyecto"
+
+    capturar "opcionDeTitulacion"
+      permitir seleccion de nuevas opciones en "opcTitulacion":
+        - 1 - I tesis profesional
+        - 2 - II libros de texto o prototipos didacticos
+        - 3 - III proyecto de investigacion
+        - 4 - IV diseño o rediseño de equipo, aparato o maquinaria
+        - 5 - V cursos especiales de titulacion
+        - 6 - VI examen global por areas de conocimiento
+        - 7 - VII memoria de experiencia profesional
+        - 8 - VIII escolaridad por promedio
+        - 9 - IX escolaridad por estudios de posgrado
+        - 10 - X memoria de residencia profesional
+        - 11a - XIa titulacion integral
+        - 11b - XIb titulacion integral
+        - 11c - XIc titulacion integral
+        - 11d - XId titulacion integral
+
+    capturar "nombreDelAsesor"
+      permitir modificacion en el campo de texto "nombre_asesor"
+
+    capturar "sinodal1"
+      permitir modificacion en el campo de texto "nombre_sinodal1"
+
+    capturar "sinodal2"
+      permitir modificacion en el campo de texto "nombre_sinodal2"
+
+    capturar "sinodal3"
+      permitir modificacion en el campo de texto "nombre_sinodal3"
+
+    capturar "estatus"
+      permitir seleccion de nuevas opciones en "estatus":
+        - 0 - en espera de documentos de solicitud
+        - 1 - realizando oficio de aprobacion
+        - 2 - oficio de aprobacion entregado
+        - 3 - oficio de NO INCONVENIENCIA recibido
+        - 4 - realizando oficio de AVISO DE ACTO RECEPCIONAL
+        - 5 - envio de AVISO DE ACTO RECEPCIONAL a egresado y jurado
+        - 6 - titulado
+
+    si el usuario presiona el botón "modificar"
+      validar datos modificados
+      si los datos son validos
+        enviar datos modificados al servidor
+        mostrar mensaje de exito
+      si no
+        mostrar mensaje de error
+      fin si
+    fin si
+
+    si el usuario presiona "volverAlInicio"
+      redirigir a la pagina "index.html"
+    fin si
+  fin proceso
+
+fin
