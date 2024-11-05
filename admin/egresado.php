@@ -5,8 +5,8 @@ $app = new egresado();
 $accion = (isset($_GET['accion']))?$_GET['accion'] : NULL;
 $id=(isset($_GET['id']))?$_GET['id']:null;
 switch ($accion) {
-    case 'crear': {
-        include 'views/egresado/crear.php';
+    case 'capturar': {
+        include 'views/egresado/capturar.php';
         break;
     }
 
@@ -71,6 +71,4 @@ switch ($accion) {
         break;
     }
 }
-
-require_once('views/footer.php');
 ?>
