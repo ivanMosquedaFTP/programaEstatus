@@ -1,37 +1,47 @@
-<?php require('views/header/headerAdministrador.php');?>
-  <h1>Invernaderos</h1>
-  <?php if (isset($mensaje)): $app -> alerta($tipo, $mensaje); endif;?>
-  <a href="invernadero.php?accion=crear" class="btn btn-success">Nuevo</a>
-  <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Id invernadero</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Área</th>
-      <th scope="col">Latitud</th>
-      <th scope="col">Longitud</th>
-      <th scope="col">Fecha de creación</th>
-      <th scope="col">Opciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php foreach($invernaderos as $invernadero): ?>
-    <tr>
-      <th scope="row"><?php echo $invernadero ['id_invernadero']; ?></th>
-      <td><?php echo $invernadero ['invernadero']; ?></td>
-      <td><?php echo $invernadero ['area']; ?></td>
-      <td><?php echo $invernadero ['latitud']; ?></td>
-      <td><?php echo $invernadero ['longitud']; ?></td>
-      <td><?php echo $invernadero ['fecha_creacion']; ?></td>
-      <td>
-        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-          <a href="invernadero.php?accion=actualizar&id=<?php echo $invernadero ['id_invernadero']; ?>" class="btn btn-warning">Actualizar</a>
-          <a href="invernadero.php?accion=eliminar&id=<?php echo $invernadero ['id_invernadero']; ?>" class="btn btn-danger">Eliminar</a>
-        </div>
-      </td>
-    </tr>
-    <?php endforeach; ?>
-  </tbody>
-</table>
+<!doctype html>
+<html lang="en">
 
-<?php require('views/footer.php')?>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Titulacion</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+      <div class="container-fluid py-5 jumbotron">
+        <h1 class="display-5 fw-bold">Bienvenido al sistema de consulta de titulaciones</h1>
+        <p class="col-md-8 fs-4">Este sistema permite la gestión de egresados aspirantes a titulación</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <a class="btn btn-primary btn-lg w-100" href="agregar.html">Capturar datos de egresado.</a>
+          <br> <br>
+          <a class="btn btn-primary btn-lg w-100" href="modificar.html">Modificar información de un egresado.</a>
+          <br> <br>
+          <a class="btn btn-primary btn-lg w-100" href="consultarEstatus.html">Consulta por estatus.</a>
+          <br> <br>
+          <a class="btn btn-primary btn-lg w-100" href="consultarOpc.html">Consulta por opción de titulación.</a>
+          <br> <br>
+          <a class="btn btn-primary btn-lg w-100" href="consultarPorNoControl.html">Consulta por número de control.</a>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
