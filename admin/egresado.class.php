@@ -1,12 +1,12 @@
 <?php
  require_once ('../sistema.class.php');
 
- class especialidad extends sistema {
+ class egresado extends sistema {
     function create ($data){
         $result = [];
         $insertar = [];
         $this -> conexion();
-        $sql="insert into especialidad(no_control, nombre_completo, especialidad, nombre_proyecto, opc_titulacion, status, fecha_examen, asesor, sinodal1, sinodal2, sinodal3) values(:no_control, :nombre_completo, :especialidad, :nombre_proyecto, :opc_titulacion, :status, :fecha_examen, :asesor, :sinodal1, :sinodal2, :sinodal3);";
+        $sql="insert into egresado(no_control, nombre_completo, especialidad, nombre_proyecto, opc_titulacion, status, fecha_examen, asesor, sinodal1, sinodal2, sinodal3) values(:no_control, :nombre_completo, :especialidad, :nombre_proyecto, :opc_titulacion, :status, :fecha_examen, :asesor, :sinodal1, :sinodal2, :sinodal3);";
         $insertar = $this->con->prepare($sql);
         $insertar -> bindParam(':no_control', $data['no_control'], PDO::PARAM_STR);
         $insertar -> bindParam(':nombre_completo', $data['nombre_completo'], PDO::PARAM_STR);
@@ -49,7 +49,7 @@
     function delete ($id){
         $this -> conexion();
         $result = [];
-        $sql = "delete from especialidad where id_solicitud=:id_solicitud;";
+        $sql = "delete from egresado where id_solicitud=:id_solicitud;";
         $eliminar = $this->con->prepare($sql);
         $eliminar -> bindParam(':id_solicitud', $id, PDO::PARAM_INT);
         $eliminar -> execute();
