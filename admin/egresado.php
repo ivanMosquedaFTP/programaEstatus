@@ -1,13 +1,12 @@
 <?php
-require_once ('invernadero.class.php');
-$app = new invernadero();
-$app -> checkRole('administrador');
+require_once ('egresado.class.php');
+$app = new egresado();
 
 $accion = (isset($_GET['accion']))?$_GET['accion'] : NULL;
 $id=(isset($_GET['id']))?$_GET['id']:null;
 switch ($accion) {
     case 'crear': {
-        include 'views/invernadero/crear.php';
+        include 'views/egresado/crear.php';
         break;
     }
 
@@ -15,21 +14,21 @@ switch ($accion) {
         $data=$_POST['data'];
         $resultado = $app->create($data);
         if ($resultado) {
-            $mensaje = "Invernadero dado de alta correctamente";
+            $mensaje = "Solicitud del egresado aspirante a titulacion dado de alta correctamente";
             $tipo = "success";
         } else {
-            $mensaje = "El invernadero no ha sido dado de alta";
+            $mensaje = "La solicitud del egresado aspirante a titulacion no ha sido dado de alta";
             $tipo = "danger";
         }
 
-        $invernaderos = $app->readAll();
-        include('views/invernadero/index.php');
+        $egresados = $app->readAll();
+        include('views/egresado/index.php');
         break;
     }
 
     case 'actualizar': {
-        $invernaderos = $app -> readOne($id); 
-        include('views/invernadero/crear.php');
+        $egresados = $app -> readOne($id); 
+        include('views/egresado/crear.php');
         break;
     }
     
@@ -37,14 +36,14 @@ switch ($accion) {
         $data= $_POST['data'];
         $result=$app->update($id,$data);
         if($result){
-            $mensaje="El invernadero se ha actualizado";
+            $mensaje="La solicitud del egresado aspirante a titulacion se ha actualizado";
             $tipo="success";
         }else{
-            $mensaje="No se ha actualizado";
+            $mensaje="La solicitud del egresado aspirante a titulacion no se ha actualizado";
             $tipo="danger";
         }
-        $invernaderos = $app->readAll();
-        include('views/invernadero/index.php');
+        $egresados = $app->readAll();
+        include('views/egresado/index.php');
         break;
     }
 
@@ -53,22 +52,22 @@ switch ($accion) {
             if (is_numeric($id)) {
                 $resultado = $app -> delete($id);
                 if ($resultado) {
-                    $mensaje = "El invernadero se elimino correctamente";
+                    $mensaje = "La solicitud del egresado aspirante a titulacion se elimino correctamente";
                     $tipo = "success";
                 } else {
-                    $mensaje = "El invernadero no se elimino correctamente";
+                    $mensaje = "La solicitud del egresado aspirante a titulacion no se elimino correctamente";
                     $tipo = "danger";
                 }
             }
         }
-        $invernaderos = $app->readAll();
-        include('views/invernadero/index.php');
+        $egresados = $app->readAll();
+        include('views/egresado/index.php');
         break;
     }
 
     default: {
-        $invernaderos = $app->readAll();
-        include 'views/invernadero/index.php';
+        $egresados = $app->readAll();
+        include 'views/egresado/index.php';
         break;
     }
 }
