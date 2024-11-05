@@ -1,4 +1,5 @@
-CREATE TABLE egresado ( no_control varchar(10) PRIMARY KEY not null,
+CREATE TABLE egresado ( id_solicitud int auto_increment primary key,
+    no_control varchar(10) not null unique,
     nombre_completo VARCHAR(100),
     CHECK (nombre_completo REGEXP '^[A-ZÑÁÉÍÓÚÜ][a-zñáéíóúü]+( [A-ZÑÁÉÍÓÚÜ][a-zñáéíóúü]+){1,3}$'),
     especialidad VARCHAR(100),
