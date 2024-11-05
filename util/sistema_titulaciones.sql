@@ -1,4 +1,4 @@
-CREATE TABLE egresado ( no_control INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE egresado ( no_control varchar(10) PRIMARY KEY not null,
     nombre_completo VARCHAR(100),
     CHECK (nombre_completo REGEXP '^[A-ZÑÁÉÍÓÚÜ][a-zñáéíóúü]+( [A-ZÑÁÉÍÓÚÜ][a-zñáéíóúü]+){1,3}$'),
     especialidad VARCHAR(100),
@@ -10,3 +10,5 @@ CREATE TABLE egresado ( no_control INT AUTO_INCREMENT PRIMARY KEY,
     sinodal1 VARCHAR(100),
     sinodal2 VARCHAR(100),
     sinodal3 VARCHAR(100) );
+
+drop table egresado;
