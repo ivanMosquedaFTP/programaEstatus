@@ -1,3 +1,4 @@
+<?php require('views/header.php');?>
 <center>
     <h1><?php if($accion=="crear"):echo('Nuevo');else: echo ('Modificar');endif; ?> egresado</h1>
 </center>
@@ -67,3 +68,4 @@
     </div>
     <div class="col-md-1"></div>
 </div>
+<?php require('views/footer_home.php');?>
