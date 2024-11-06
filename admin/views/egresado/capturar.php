@@ -12,7 +12,7 @@
             <label for="noControl" class="form-label fw-bold">Numero de control:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" name="data[no_control]" class="form-control" id="noControl" aria-describedby="noControlHelp">
+            <input type="number" name="data[no_control]" class="form-control" id="noControl" aria-describedby="noControlHelp">
           </div>
           <div class="col-md-2"></div>
         </div>
