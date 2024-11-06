@@ -69,7 +69,7 @@
             <label for="opcTitulacion" class="form-label fw-bold">Opción de titulación:</label>
           </div>
           <div class="col-md-4">
-            <select name="data[opc_titulacion]" class="form-select" aria-label="Seleccion de la opción de titulación" id="opcTitulacion">
+            <select name="data[opc_titulacion]" required="true" class="form-select" aria-label="Seleccion de la opción de titulación" id="opcTitulacion">
               <option selected>Seleccione una opción</option>
               <option value="1">I - tesis profesional</option>
               <option value="2">II - libros de texto o prototipos didacticos</option>
@@ -81,10 +81,10 @@
               <option value="8">VIII - escolaridad por promedio</option>
               <option value="9">IX - escolaridad por estudios de posgrado</option>
               <option value="10">X - memoria de residencia profesional</option>
-              <option value="11a">XIa - titulación integral</option>
-              <option value="11b">XIb - titulación integral</option>
-              <option value="11c">XIc - titulación integral</option>
-              <option value="11d">XId - titulación integral</option>
+              <option value="11">XIa - titulación integral</option>
+              <option value="12">XIb - titulación integral</option>
+              <option value="13">XIc - titulación integral</option>
+              <option value="14">XId - titulación integral</option>
             </select>
           </div>
           <div class="col-md-2"></div>
@@ -151,9 +151,8 @@
             <label for="estatus" class="form-label fw-bold">Estatus:</label>
           </div>
           <div class="col-md-4">
-            <select name="data[status]" class="form-select" aria-label="Seleccion del estatus" id="estatus">
+            <select name="data[status]" required="true" class="form-select" aria-label="Seleccion del estatus" id="estatus">
               <option selected>Seleccione una opción</option>
-              <option value="0">0 en espera de documentos de solicitud</option>
               <option value="1">1 realizando oficio de aprobacion</option>
               <option value="2">2 oficio de aprobacion entregado</option>
               <option value="3">3 oficio de NO INCONVENIENCIA recibido</option>

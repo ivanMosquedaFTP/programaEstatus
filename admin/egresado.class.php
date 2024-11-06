@@ -12,7 +12,39 @@
         $insertar -> bindParam(':nombre_completo', $data['nombre_completo'], PDO::PARAM_STR);
         $insertar -> bindParam(':especialidad', $data['especialidad'], PDO::PARAM_STR);
         $insertar -> bindParam(':nombre_proyecto', $data['nombre_proyecto'], PDO::PARAM_STR);
-        $insertar -> bindParam(':opc_titulacion', $data['opc_titulacion'], PDO::PARAM_STR);
+
+        $opc = "";
+        if (!is_null($data['opc_titulacion']) && $data['opc_titulacion'] == 1) {
+            $opc = "I";
+        } else if (!is_null($data['opc_titulacion']) && $data['opc_titulacion'] == 2) {
+            $opc = "II";
+        } else if (!is_null($data['opc_titulacion']) && $data['opc_titulacion'] == 3) {
+            $opc = "III";
+        } else if (!is_null($data['opc_titulacion']) && $data['opc_titulacion'] == 4) {
+            $opc = "IV";
+        } else if (!is_null($data['opc_titulacion']) && $data['opc_titulacion'] == 5) {
+            $opc = "V";
+        } else if (!is_null($data['opc_titulacion']) && $data['opc_titulacion'] == 6) {
+            $opc = "VI";
+        } else if (!is_null($data['opc_titulacion']) && $data['opc_titulacion'] == 7) {
+            $opc = "VII";
+        } else if (!is_null($data['opc_titulacion']) && $data['opc_titulacion'] == 8) {
+            $opc = "VIII";
+        } else if (!is_null($data['opc_titulacion']) && $data['opc_titulacion'] == 9) {
+            $opc = "IX";
+        } else if (!is_null($data['opc_titulacion']) && $data['opc_titulacion'] == 10) {
+            $opc = "X";
+        } else if (!is_null($data['opc_titulacion']) && $data['opc_titulacion'] == 11) {
+            $opc = "XIa";
+        } else if (!is_null($data['opc_titulacion']) && $data['opc_titulacion'] == 12) {
+            $opc = "XIb";
+        } else if (!is_null($data['opc_titulacion']) && $data['opc_titulacion'] == 13) {
+            $opc = "XIc";
+        } else if (!is_null($data['opc_titulacion']) && $data['opc_titulacion'] == 14) {
+            $opc = "XId";
+        }
+
+        $insertar -> bindParam(':opc_titulacion', $opc, PDO::PARAM_INT);
         $insertar -> bindParam(':status', $data['status'], PDO::PARAM_INT);
         $insertar -> bindParam(':fecha_examen', $data['fecha_examen'], PDO::PARAM_STR);
         $insertar -> bindParam(':asesor', $data['asesor'], PDO::PARAM_STR);
