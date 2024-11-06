@@ -44,8 +44,25 @@
             $opc = "XId";
         }
 
-        $insertar -> bindParam(':opc_titulacion', $opc, PDO::PARAM_INT);
-        $insertar -> bindParam(':status', $data['status'], PDO::PARAM_INT);
+        $insertar -> bindParam(':opc_titulacion', $opc, PDO::PARAM_STR);
+
+        $stat = "";
+        if (!is_null($data['status']) && $data['status'] == 1) {
+            $stat = "1";
+        } else if (!is_null($data['status']) && $data['status'] == 2) {
+            $stat = "2";
+        } else if (!is_null($data['status']) && $data['status'] == 3) {
+            $stat = "3";
+        } else if (!is_null($data['status']) && $data['status'] == 4) {
+            $stat = "4";
+        } else if (!is_null($data['status']) && $data['status'] == 5) {
+            $stat = "5";
+        } else if (!is_null($data['status']) && $data['status'] == 6) {
+            $stat = "6";
+        }
+
+        $insertar -> bindParam(':status', $stat, PDO::PARAM_INT);
+
         $insertar -> bindParam(':fecha_examen', $data['fecha_examen'], PDO::PARAM_STR);
         $insertar -> bindParam(':asesor', $data['asesor'], PDO::PARAM_STR);
         $insertar -> bindParam(':sinodal1', $data['sinodal1'], PDO::PARAM_STR);
