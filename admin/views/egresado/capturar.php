@@ -1,71 +1,178 @@
 <?php require('views/header.php');?>
 <center>
-    <h1><?php if($accion=="crear"):echo('Nuevo');else: echo ('Modificar');endif; ?> egresado</h1>
+    <h1><?php if($accion=="capturar"):echo('Nueva');else: echo ('Modificar');endif; ?> solicitud de titulacion</h1>
 </center>
 
-<div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-        <form method="post" action="egresado.php?accion=<?php if($accion=="crear"):echo('nuevo');else:echo('modificar&id='.$id);endif;?>">
-
-        <div class="mb-3">
-            <label for="no_control" class="form-label">Numero de control del egresado</label>
-            <input class="form-control" type="text" name="data[no_control]" placeholder="Escribe aquí el numero de control" value="<?php if(isset($egresados["no_control"])):echo($egresados['no_control']);endif;?>" id="no_control"/>
+<main>
+    <section class="formulario">
+      <form action="#" method="post">
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
+            <label for="noControl" class="form-label fw-bold">Numero de control:</label>
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" id="noControl" aria-describedby="noControlHelp">
+          </div>
+          <div class="col-md-2"></div>
         </div>
+        <br>
 
-        <div class="mb-3">
-            <label for="nombre_completo" class="form-label">Nombre del egresado</label>
-            <input class="form-control" type="text" name="data[nombre_completo]" placeholder="Escribe aquí el nombre completo" value="<?php if(isset($egresados["nombre_completo"])):echo($egresados['nombre_completo']);endif;?>" id="nombre_completo"/>
+        <!-- nombre completo -->
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
+            <label for="nombre" class="form-label fw-bold">Nombre completo:</label>
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" id="nombre">
+          </div>
+          <div class="col-md-2"></div>
         </div>
+        <br>
 
-        <div class="mb-3">
-            <label for="especialidad" class="form-label">Especialidad del egresado</label>
-            <input class="form-control" type="text" name="data[especialidad]" placeholder="Escribe aquí la especialidad del egresado"  value="<?php if(isset($egresados["especialidad"])):echo($egresados['especialidad']);endif;?>"  id="especialidad"/>
+        <!-- especialidad -->
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
+            <label for="especialidad" class="form-label fw-bold">Especialidad:</label>
+          </div>
+          <div class="col-md-4">
+            <select class="form-select" aria-label="Seleccion de la especialidad" id="especialidad">
+              <option selected>Seleccione una opción</option>
+              <option value="IINFO">IINFO</option>
+              <option value="LINFO">LINFO</option>
+              <option value="ISC">ISC</option>
+            </select>
+          </div>
+          <div class="col-md-2"></div>
         </div>
+        <br>
 
-        <div class="mb-3">
-            <label for="nombre_proyecto" class="form-label">Nombre del proyecto del egresado</label>
-            <input class="form-control" type="text" name="data[nombre_proyecto]" placeholder="Escribe aquí el nombre del proyecto del egresado"  value="<?php if(isset($egresados["nombre_proyecto"])):echo($egresados['nombre_proyecto']);endif;?>"  id="nombre_proyecto"/>
+        <!-- nombre del proyecto -->
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
+            <label for="nombre_proyecto" class="form-label fw-bold">Nombre del proyecto:</label>
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" id="nombre_proyecto">
+          </div>
+          <div class="col-md-2"></div>
         </div>
+        <br>
 
-        <div class="mb-3">
-            <label for="opc_titulacion" class="form-label">Opcion de titulacion del egresado</label>
-            <input class="form-control" type="text" name="data[opc_titulacion]" placeholder="Escribe aquí la opcion de titulacion del egresado" value="<?php if(isset($egresados["opc_titulacion"])):echo($egresados['opc_titulacion']);endif;?>" id="opc_titulacion"/>
+        <!-- opcion de titulacion -->
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
+            <label for="opcTitulacion" class="form-label fw-bold">Opción de titulación:</label>
+          </div>
+          <div class="col-md-4">
+            <select class="form-select" aria-label="Seleccion de la opción de titulación" id="opcTitulacion">
+              <option selected>Seleccione una opción</option>
+              <option value="1">I - tesis profesional</option>
+              <option value="2">II - libros de texto o prototipos didacticos</option>
+              <option value="3">III - proyecto de investigacion</option>
+              <option value="4">IV - diseño o rediseño de equipo, aparato o maquinaria</option>
+              <option value="5">V - cursos especiales de titulación</option>
+              <option value="6">VI - examen global por areas de conocimiento</option>
+              <option value="7">VII - memoria de experiencia profesional</option>
+              <option value="8">VIII - escolaridad por promedio</option>
+              <option value="9">IX - escolaridad por estudios de posgrado</option>
+              <option value="10">X - memoria de residencia profesional</option>
+              <option value="11a">XIa - titulación integral</option>
+              <option value="11b">XIb - titulación integral</option>
+              <option value="11c">XIc - titulación integral</option>
+              <option value="11d">XId - titulación integral</option>
+            </select>
+          </div>
+          <div class="col-md-2"></div>
         </div>
+        <br>>
 
-        <div class="mb-3">
-            <label for="status" class="form-label">Status del egresado</label>
-            <input class="form-control" id="status" type="number" name="data[status]" placeholder="Escribe aquí el status del egresado" value="<?php if(isset($egresados["status"])):echo($egresados['status']);endif;?>"/>
+        <!-- nombre del asesor -->
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
+            <label for="nombre_asesor" class="form-label fw-bold">Nombre del asesor:</label>
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" id="nombre_asesor">
+          </div>
+          <div class="col-md-2"></div>
         </div>
+        <br>
 
-        <div class="mb-3">
-            <label class="form-label" for="fecha">Fecha del examen</label>
-            <input class="form-control" id="fecha" type="date" name="data[fecha_examen]"  value="<?php if(isset($egresados["fecha_examen"])):echo($egresados['fecha_examen']);endif;?>"/>
+        <!-- sinodal 1 -->
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
+            <label for="nombre_sinodal1" class="form-label fw-bold">Sinodal 1:</label>
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" id="nombre_sinodal1">
+          </div>
+          <div class="col-md-2"></div>
         </div>
+        <br>
 
-        <div class="mb-3">
-            <label for="asesor" class="form-label">Asesor del egresado</label>
-            <input class="form-control" id="status" type="number" name="data[asesor]" placeholder="Escribe aquí el nombre del asesor del egresado" value="<?php if(isset($egresados["asesor"])):echo($egresados['asesor']);endif;?>"/>
+        <!-- sinodal 2 -->
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
+            <label for="nombre_sinodal2" class="form-label fw-bold">Sinodal 2:</label>
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" id="nombre_sinodal2">
+          </div>
+          <div class="col-md-2"></div>
         </div>
+        <br>
 
-        <div class="mb-3">
-            <label for="sinodal1" class="form-label">Sinodal 1</label>
-            <input class="form-control" id="sinodal1" type="number" name="data[sinodal1]" placeholder="Escribe aquí el nombre del sinodal 1" value="<?php if(isset($egresados["sinodal1"])):echo($egresados['sinodal1']);endif;?>"/>
+        <!-- sinodal 3 -->
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
+            <label for="nombre_sinodal3" class="form-label fw-bold">Sinodal 3:</label>
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" id="nombre_sinodal2">
+          </div>
+          <div class="col-md-2"></div>
         </div>
+        <br>
 
-        <div class="mb-3">
-            <label for="sinodal2" class="form-label">Sinodal 2</label>
-            <input class="form-control" id="sinodal2" type="number" name="data[sinodal2]" placeholder="Escribe aquí el nombre del sinodal 2" value="<?php if(isset($egresados["sinodal2"])):echo($egresados['sinodal2']);endif;?>"/>
+        <!-- estatus -->
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
+            <label for="estatus" class="form-label fw-bold">Estatus:</label>
+          </div>
+          <div class="col-md-4">
+            <select class="form-select" aria-label="Seleccion del estatus" id="estatus">
+              <option selected>Seleccione una opción</option>
+              <option value="0">0 en espera de documentos de solicitud</option>
+              <option value="1">1 realizando oficio de aprobacion</option>
+              <option value="2">2 oficio de aprobacion entregado</option>
+              <option value="3">3 oficio de NO INCONVENIENCIA recibido</option>
+              <option value="4">4 realizando oficio de AVISO DE ACTO RECEPCIONAL</option>
+              <option value="5">5 envio de AVISO DE ACTO RECEPCIONAL a egresado y jurado</option>
+              <option value="6">6 titulado</option>
+            </select>
+          </div>
+          <div class="col-md-2"></div>
         </div>
-
-        <div class="mb-3">
-            <label for="sinodal3" class="form-label">Sinodal 3</label>
-            <input class="form-control" id="sinodal3" type="number" name="data[sinodal3]" placeholder="Escribe aquí el nombre del sinodal 3" value="<?php if(isset($egresados["sinodal3"])):echo($egresados['sinodal3']);endif;?>"/>
+      </form>
+      <br><br>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-primary w-100">Agregar</button>
         </div>
+        <div class="col-md-4"></div>
+      </div>
+    </section>
+  </main>
 
-        <input type="submit" value="Guardar" name="data[enviar]" class="btn btn-primary w-100">
-        </form>
-    </div>
-    <div class="col-md-1"></div>
-</div>
 <?php require('views/footer_home.php');?>
