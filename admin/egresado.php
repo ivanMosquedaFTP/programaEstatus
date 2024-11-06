@@ -3,7 +3,6 @@ require_once ('egresado.class.php');
 $app = new egresado();
 
 $accion = (isset($_GET['accion']))?$_GET['accion'] : NULL;
-$id=(isset($_GET['id']))?$_GET['id']:null;
 switch ($accion) {
     case 'capturar': {
         include 'views/egresado/capturar.php';

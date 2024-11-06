@@ -10,7 +10,18 @@
         $insertar = $this->con->prepare($sql);
         $insertar -> bindParam(':no_control', $data['no_control'], PDO::PARAM_STR);
         $insertar -> bindParam(':nombre_completo', $data['nombre_completo'], PDO::PARAM_STR);
-        $insertar -> bindParam(':especialidad', $data['especialidad'], PDO::PARAM_STR);
+
+        $espec = "";
+        if (!is_null($data['especialidad']) && $data['especialidad'] == 1) {
+            $espec = "IINFO";
+        } else if (!is_null($data['especialidad']) && $data['especialidad'] == 2) {
+            $espec = "LINFO";
+        } else if (!is_null($data['especialidad']) && $data['especialidad'] == 3) {
+            $espec = "ISC";
+        }
+
+        $insertar -> bindParam(':especialidad', $espec, PDO::PARAM_STR);
+
         $insertar -> bindParam(':nombre_proyecto', $data['nombre_proyecto'], PDO::PARAM_STR);
 
         $opc = "";

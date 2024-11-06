@@ -5,7 +5,7 @@
 
 <main>
     <section class="formulario">
-      <form action="egresado.php?accion=<?php if($accion == "capturar"): echo('capturar'); else: echo('modificar&id='.$id); endif;?>" method="post">
+      <form action="egresado.php?accion=<?php if($accion == "capturar"): echo('nuevo'); else: echo('modificar&id='.$id); endif;?>" method="POST">
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-4">
@@ -38,11 +38,11 @@
             <label for="especialidad" class="form-label fw-bold">Especialidad:</label>
           </div>
           <div class="col-md-4">
-            <select class="form-select" aria-label="Seleccion de la especialidad" id="especialidad">
+            <select name="data[especialidad]" required="true" class="form-select" aria-label="Seleccion de la especialidad" id="especialidad">
               <option selected>Seleccione una opción</option>
-              <option value="IINFO">IINFO</option>
-              <option value="LINFO">LINFO</option>
-              <option value="ISC">ISC</option>
+              <option value="1">IINFO</option>
+              <option value="2">LINFO</option>
+              <option value="3">ISC</option>
             </select>
           </div>
           <div class="col-md-2"></div>
@@ -168,7 +168,7 @@
       <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-          <button type="submit" name="data[enviar]" class="btn btn-primary w-100">Capturar</button>
+          <input type="submit" name="data[enviar]" class="btn btn-primary w-100" value="Capturar">
         </div>
         <div class="col-md-4"></div>
       </div>
