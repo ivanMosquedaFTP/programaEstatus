@@ -6,7 +6,7 @@
         <div class="col-md-4">
           <a class="btn btn-primary btn-lg w-100" href="egresado.php?accion=capturar">Capturar datos de egresado.</a>
           <br> <br>
-          <a class="btn btn-primary btn-lg w-100" href="modificar.php">Modificar información de un egresado.</a>
+          <a class="btn btn-primary btn-lg w-100" href="egresado.php?accion=actualizar">Modificar información de un egresado.</a>
           <br> <br>
           <a class="btn btn-primary btn-lg w-100" href="consultarEstatus.php">Consulta por estatus.</a>
           <br> <br>

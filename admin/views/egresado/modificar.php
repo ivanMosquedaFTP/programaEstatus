@@ -1,11 +1,11 @@
 <?php require('views/header.php');?>
 <center>
-    <h1>Nueva solicitud de titulacion</h1>
+    <h1>Modificar solicitud de titulacion</h1>
 </center>
 
 <main>
     <section class="formulario">
-      <form action="egresado.php?accion=nuevo" method="POST">
+      <form action="egresado.php?accion=modificar" method="POST">
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-4">
@@ -25,7 +25,7 @@
             <label for="nombre" class="form-label fw-bold">Nombre completo:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" name="data[nombre_completo]" class="form-control" id="nombre">
+            <input type="text" name="data[nombre_completo]" class="form-control" id="nombre" value="<?php if(isset($egresados["nombre_completo"])):echo($egresados['nombre_completo']);endif;?>">
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -56,7 +56,7 @@
             <label for="nombre_proyecto" class="form-label fw-bold">Nombre del proyecto:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" name="data[nombre_proyecto]" class="form-control" id="nombre_proyecto">
+            <input type="text" name="data[nombre_proyecto]" class="form-control" id="nombre_proyecto" value="<?php if(isset($egresados["nombre_proyecto"])):echo($egresados['nombre_proyecto']);endif;?>">
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -98,7 +98,7 @@
             <label for="nombre_asesor" class="form-label fw-bold">Nombre del asesor:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" name="data[asesor]" class="form-control" id="nombre_asesor">
+            <input type="text" name="data[asesor]" class="form-control" id="nombre_asesor" value="<?php if(isset($egresados["asesor"])):echo($egresados['asesor']);endif;?>">
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -111,7 +111,7 @@
             <label for="nombre_sinodal1" class="form-label fw-bold">Sinodal 1:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" name="data[sinodal1]" class="form-control" id="nombre_sinodal1">
+            <input type="text" name="data[sinodal1]" class="form-control" id="nombre_sinodal1" value="<?php if(isset($egresados["sinodal1"])):echo($egresados['sinodal1']);endif;?>">
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -124,7 +124,7 @@
             <label for="nombre_sinodal2" class="form-label fw-bold">Sinodal 2:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" name="data[sinodal2]" class="form-control" id="nombre_sinodal2">
+            <input type="text" name="data[sinodal2]" class="form-control" id="nombre_sinodal2" value="<?php if(isset($egresados["sinodal2"])):echo($egresados['sinodal2']);endif;?>">
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -137,7 +137,7 @@
             <label for="nombre_sinodal3" class="form-label fw-bold">Sinodal 3:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" name="data[sinodal3]" class="form-control" id="nombre_sinodal2">
+            <input type="text" name="data[sinodal2]" class="form-control" id="nombre_sinodal3" value="<?php if(isset($egresados["sinodal3"])):echo($egresados['sinodal3']);endif;?>">
           </div>
           <div class="col-md-2"></div>
         </div>
