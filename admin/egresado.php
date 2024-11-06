@@ -13,6 +13,7 @@ switch ($accion) {
         $data=$_POST['data'];
         $resultado = $app->create($data);
         if ($resultado) {
+            echo('creado con exito');
             $mensaje = "Solicitud del egresado aspirante a titulacion dado de alta correctamente";
             $tipo = "success";
         } else {
