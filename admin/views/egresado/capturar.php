@@ -5,7 +5,7 @@
 
 <main>
     <section class="formulario">
-      <form action="egresado.php?accion=<?php if($accion == "capturar"): echo('nuevo'); endif;?>" method="POST">
+      <form action="egresado.php?accion=nuevo" method="POST">
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-4">
@@ -163,15 +163,16 @@
           </div>
           <div class="col-md-2"></div>
         </div>
-      </form>
-      <br><br>
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-          <input type="submit" name="data[enviar]" class="btn btn-primary w-100" value="Capturar">
+
+        <br><br>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <input type="submit" name="data[enviar]" class="btn btn-primary w-100" value="Capturar">
+            </div>
+            <div class="col-md-4"></div>
         </div>
-        <div class="col-md-4"></div>
-      </div>
+      </form>
     </section>
   </main>
 
