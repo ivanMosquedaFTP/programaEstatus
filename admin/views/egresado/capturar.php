@@ -5,14 +5,14 @@
 
 <main>
     <section class="formulario">
-      <form action="#" method="post">
+      <form action="egresado.php?accion=<?php if($accion == "capturar"): echo('capturar'); else: echo('modificar&id='.$id); endif;?>" method="post">
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-4">
             <label for="noControl" class="form-label fw-bold">Numero de control:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" class="form-control" id="noControl" aria-describedby="noControlHelp">
+            <input type="text" name="data[no_control]" class="form-control" id="noControl" aria-describedby="noControlHelp">
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -25,7 +25,7 @@
             <label for="nombre" class="form-label fw-bold">Nombre completo:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" class="form-control" id="nombre">
+            <input type="text" name="data[nombre_completo]" class="form-control" id="nombre">
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -56,7 +56,7 @@
             <label for="nombre_proyecto" class="form-label fw-bold">Nombre del proyecto:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" class="form-control" id="nombre_proyecto">
+            <input type="text" name="data[nombre_proyecto]" class="form-control" id="nombre_proyecto">
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -98,7 +98,7 @@
             <label for="nombre_asesor" class="form-label fw-bold">Nombre del asesor:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" class="form-control" id="nombre_asesor">
+            <input type="text" name="data[asesor]" class="form-control" id="nombre_asesor">
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -111,7 +111,7 @@
             <label for="nombre_sinodal1" class="form-label fw-bold">Sinodal 1:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" class="form-control" id="nombre_sinodal1">
+            <input type="text" name="data[sinodal1]" class="form-control" id="nombre_sinodal1">
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -124,7 +124,7 @@
             <label for="nombre_sinodal2" class="form-label fw-bold">Sinodal 2:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" class="form-control" id="nombre_sinodal2">
+            <input type="text" name="data[sinodal2]" class="form-control" id="nombre_sinodal2">
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -137,7 +137,7 @@
             <label for="nombre_sinodal3" class="form-label fw-bold">Sinodal 3:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" class="form-control" id="nombre_sinodal2">
+            <input type="text" name="data[sinodal3]" class="form-control" id="nombre_sinodal2">
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -168,7 +168,7 @@
       <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-          <button type="submit" class="btn btn-primary w-100">Agregar</button>
+          <button type="submit" name="data[enviar]" class="btn btn-primary w-100">Capturar</button>
         </div>
         <div class="col-md-4"></div>
       </div>
