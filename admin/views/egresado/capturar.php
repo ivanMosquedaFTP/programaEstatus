@@ -69,7 +69,7 @@
             <label for="opcTitulacion" class="form-label fw-bold">Opción de titulación:</label>
           </div>
           <div class="col-md-4">
-            <select class="form-select" aria-label="Seleccion de la opción de titulación" id="opcTitulacion">
+            <select name="data[opc_titulacion]" class="form-select" aria-label="Seleccion de la opción de titulación" id="opcTitulacion">
               <option selected>Seleccione una opción</option>
               <option value="1">I - tesis profesional</option>
               <option value="2">II - libros de texto o prototipos didacticos</option>
@@ -144,13 +144,14 @@
         <br>
 
         <!-- estatus -->
+        <!-- integer -->
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-4">
             <label for="estatus" class="form-label fw-bold">Estatus:</label>
           </div>
           <div class="col-md-4">
-            <select class="form-select" aria-label="Seleccion del estatus" id="estatus">
+            <select name="data[status]" class="form-select" aria-label="Seleccion del estatus" id="estatus">
               <option selected>Seleccione una opción</option>
               <option value="0">0 en espera de documentos de solicitud</option>
               <option value="1">1 realizando oficio de aprobacion</option>
