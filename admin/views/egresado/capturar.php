@@ -5,7 +5,7 @@
 
 <main>
     <section class="formulario">
-      <form action="egresado.php?accion=<?php if($accion == "capturar"): echo('nuevo'); else: echo('modificar&id='.$id); endif;?>" method="POST">
+      <form action="egresado.php?accion=<?php if($accion == "capturar"): echo('nuevo'); endif;?>" method="POST">
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-4">
