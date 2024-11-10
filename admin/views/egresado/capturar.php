@@ -18,7 +18,7 @@ require('views/header.php');
             <label for="noControl" class="form-label fw-bold">Numero de control:</label>
           </div>
           <div class="col-md-4">
-            <input type="number" name="data[no_control]" class="form-control" id="noControl" aria-describedby="noControlHelp">
+            <input type="number" name="data[no_control]" required="true" class="form-control" id="noControl" aria-describedby="noControlHelp">
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -31,7 +31,7 @@ require('views/header.php');
             <label for="nombre" class="form-label fw-bold">Nombre completo:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" name="data[nombre_completo]" class="form-control" id="nombre">
+            <input type="text" name="data[nombre_completo]" required="true" class="form-control" id="nombre">
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -44,7 +44,7 @@ require('views/header.php');
             <label for="especialidad" class="form-label fw-bold">Especialidad:</label>
           </div>
           <div class="col-md-4">
-            <select name="data[especialidad]" required class="form-select" aria-label="Seleccion de la especialidad" id="especialidad">
+            <select name="data[especialidad]" required="true" class="form-select" aria-label="Seleccion de la especialidad" id="especialidad">
               <option selected>Seleccione una opción</option>
               <option value="1">IINFO</option>
               <option value="2">LINFO</option>
@@ -62,7 +62,7 @@ require('views/header.php');
             <label for="nombre_proyecto" class="form-label fw-bold">Nombre del proyecto:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" name="data[nombre_proyecto]" class="form-control" id="nombre_proyecto">
+            <input type="text" name="data[nombre_proyecto]" required="true" class="form-control" id="nombre_proyecto">
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -75,7 +75,7 @@ require('views/header.php');
             <label for="opcTitulacion" class="form-label fw-bold">Opción de titulación:</label>
           </div>
           <div class="col-md-4">
-            <select name="data[opc_titulacion]" required class="form-select" aria-label="Seleccion de la opción de titulación" id="opcTitulacion">
+            <select name="data[opc_titulacion]" required="true" class="form-select" aria-label="Seleccion de la opción de titulación" id="opcTitulacion">
               <option selected>Seleccione una opción</option>
               <option value="1">I - tesis profesional</option>
               <option value="2">II - libros de texto o prototipos didacticos</option>
@@ -104,7 +104,7 @@ require('views/header.php');
             <label for="nombre_asesor" class="form-label fw-bold">Nombre del asesor:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" name="data[asesor]" class="form-control" id="nombre_asesor">
+            <input type="text" name="data[asesor]" required="true" class="form-control" id="nombre_asesor">
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -117,7 +117,7 @@ require('views/header.php');
             <label for="nombre_sinodal1" class="form-label fw-bold">Sinodal 1:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" name="data[sinodal1]" class="form-control" id="nombre_sinodal1">
+            <input type="text" name="data[sinodal1]" required="true" class="form-control" id="nombre_sinodal1">
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -130,7 +130,7 @@ require('views/header.php');
             <label for="nombre_sinodal2" class="form-label fw-bold">Sinodal 2:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" name="data[sinodal2]" class="form-control" id="nombre_sinodal2">
+            <input type="text" name="data[sinodal2]" required="true" class="form-control" id="nombre_sinodal2">
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -143,7 +143,7 @@ require('views/header.php');
             <label for="nombre_sinodal3" class="form-label fw-bold">Sinodal 3:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" name="data[sinodal3]" class="form-control" id="nombre_sinodal3">
+            <input type="text" name="data[sinodal3]" required="true" class="form-control" id="nombre_sinodal3">
           </div>
           <div class="col-md-2"></div>
         </div>
@@ -156,7 +156,7 @@ require('views/header.php');
             <label for="estatus" class="form-label fw-bold">Estatus:</label>
           </div>
           <div class="col-md-4">
-            <select name="data[status]" required class="form-select" aria-label="Seleccion del estatus" id="estatus">
+            <select name="data[status]" required="true" class="form-select" aria-label="Seleccion del estatus" id="estatus">
               <option selected>Seleccione una opción</option>
               <option value="1">1 realizando oficio de aprobacion</option>
               <option value="2">2 oficio de aprobacion entregado</option>
@@ -173,7 +173,7 @@ require('views/header.php');
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
-                <input type="submit" name="data[enviar]" class="btn btn-primary w-100" value="Capturar">
+                <input type="submit" name="data[enviar]" required="true" class="btn btn-primary w-100" value="Capturar">
             </div>
             <div class="col-md-4"></div>
         </div>
