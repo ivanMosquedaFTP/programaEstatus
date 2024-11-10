@@ -1,11 +1,17 @@
-<?php require('views/header.php');?>
+<?php 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require('views/header.php'); 
+?>
 <center>
     <h1>Nueva solicitud de titulacion</h1>
 </center>
 
 <main>
     <section class="formulario">
-      <form action="egresado.php?accion=nuevo" method="POST">
+      <form action="egresado.php?accion=nuevo" method="POST" onsubmit="return validarSinodales();">
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-4">
@@ -38,7 +44,7 @@
             <label for="especialidad" class="form-label fw-bold">Especialidad:</label>
           </div>
           <div class="col-md-4">
-            <select name="data[especialidad]" required="true" class="form-select" aria-label="Seleccion de la especialidad" id="especialidad">
+            <select name="data[especialidad]" required class="form-select" aria-label="Seleccion de la especialidad" id="especialidad">
               <option selected>Seleccione una opción</option>
               <option value="1">IINFO</option>
               <option value="2">LINFO</option>
@@ -69,7 +75,7 @@
             <label for="opcTitulacion" class="form-label fw-bold">Opción de titulación:</label>
           </div>
           <div class="col-md-4">
-            <select name="data[opc_titulacion]" required="true" class="form-select" aria-label="Seleccion de la opción de titulación" id="opcTitulacion">
+            <select name="data[opc_titulacion]" required class="form-select" aria-label="Seleccion de la opción de titulación" id="opcTitulacion">
               <option selected>Seleccione una opción</option>
               <option value="1">I - tesis profesional</option>
               <option value="2">II - libros de texto o prototipos didacticos</option>
@@ -89,7 +95,7 @@
           </div>
           <div class="col-md-2"></div>
         </div>
-        <br>>
+        <br>
 
         <!-- nombre del asesor -->
         <div class="row">
@@ -137,21 +143,20 @@
             <label for="nombre_sinodal3" class="form-label fw-bold">Sinodal 3:</label>
           </div>
           <div class="col-md-4">
-            <input type="text" name="data[sinodal3]" class="form-control" id="nombre_sinodal2">
+            <input type="text" name="data[sinodal3]" class="form-control" id="nombre_sinodal3">
           </div>
           <div class="col-md-2"></div>
         </div>
         <br>
 
         <!-- estatus -->
-        <!-- integer -->
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-4">
             <label for="estatus" class="form-label fw-bold">Estatus:</label>
           </div>
           <div class="col-md-4">
-            <select name="data[status]" required="true" class="form-select" aria-label="Seleccion del estatus" id="estatus">
+            <select name="data[status]" required class="form-select" aria-label="Seleccion del estatus" id="estatus">
               <option selected>Seleccione una opción</option>
               <option value="1">1 realizando oficio de aprobacion</option>
               <option value="2">2 oficio de aprobacion entregado</option>
@@ -176,4 +181,20 @@
     </section>
   </main>
 
-<?php require('views/footer_home.php');?>
+  <script>
+    function validarSinodales() {
+      const sinodal1 = document.getElementById('nombre_sinodal1').value.trim();
+      const sinodal2 = document.getElementById('nombre_sinodal2').value.trim();
+      const sinodal3 = document.getElementById('nombre_sinodal3').value.trim();
+
+      if ((sinodal1 && sinodal1 === sinodal2) || 
+          (sinodal1 && sinodal1 === sinodal3) || 
+          (sinodal2 && sinodal2 === sinodal3)) {
+        alert("Los nombres de los sinodales no deben repetirse.");
+        return false;
+      }
+      return true;
+    }
+  </script>
+
+<?php require('views/footer_home.php'); ?>

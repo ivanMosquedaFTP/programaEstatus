@@ -25,6 +25,7 @@ switch ($accion) {
 
         $egresados = $app->readAll();
         // include('views/egresado/index.php');
+        include('views/footer_home.php');
         break;
     }
 
@@ -51,6 +52,7 @@ switch ($accion) {
 
         $egresados = $app->readAll();
         // include('views/egresado/index.php');
+        include('views/footer_home.php');
         break;
     }
 
