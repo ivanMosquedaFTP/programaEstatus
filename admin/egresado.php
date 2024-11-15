@@ -42,9 +42,9 @@ switch ($accion) {
             $result=$app->validate($data['no_control']);
 
             if($result){
-                echo('Egresado aspirante a titulacion encontrado');
                 $mensaje="El egresado ha sido encontrado, procediendo";
                 $tipo="success";
+                $egresados = $app->readOne($data['no_control']);
                 include("views/egresado/modificar.php");
             }else{
                 echo('El egresado aspirante a titulacion no ha sido encontrado');
@@ -63,6 +63,9 @@ switch ($accion) {
     
     case 'modificar': {
         $data= $_POST['data'];
+        // echo('<pre/>');
+        // print_r($data);
+        // die();
         if (!is_null($data['no_control']) && is_numeric($data['no_control'])) {
             $result=$app->update($data);
 

@@ -179,9 +179,9 @@
     function readOne ($id){
         $this->conexion();
         $result = [];
-        $consulta = 'SELECT * FROM egresado where id_solicitud=:id_solicitud;';
+        $consulta = 'SELECT * FROM egresado where no_control=:no_control;';
         $sql = $this->con->prepare($consulta);
-        $sql->bindParam(":id_solicitud",$id,PDO::PARAM_INT);
+        $sql->bindParam(":no_control",$id,PDO::PARAM_INT);
         $sql -> execute();
 
         $result = $sql->fetch(PDO::FETCH_ASSOC);

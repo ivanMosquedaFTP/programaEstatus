@@ -6,18 +6,7 @@
 <main>
     <section class="formulario">
         <form action="egresado.php?accion=modificar" method="POST" onsubmit="return validarSinodales();">
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-4">
-                    <label for="noControl" class="form-label fw-bold">Número de control:</label>
-                </div>
-                <div class="col-md-4">
-                    <input type="number" name="data[no_control]" required="true" class="form-control" id="noControl" aria-describedby="noControlHelp">
-                </div>
-                <div class="col-md-2"></div>
-            </div>
-            <br>
-
+            <input type="hidden" name="data[no_control]" value="<?php echo $egresados['no_control']; ?>">
             <!-- nombre completo -->
             <div class="row">
                 <div class="col-md-2"></div>
@@ -25,7 +14,7 @@
                     <label for="nombre" class="form-label fw-bold">Nombre completo:</label>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="data[nombre_completo]" required="true" class="form-control" id="nombre" value="<?php echo isset($egresados["nombre_completo"]) ? htmlspecialchars($egresados['nombre_completo']) : ''; ?>">
+                    <input type="text" name="data[nombre_completo]" required="true" class="form-control" id="nombre" value="<?php if(isset($egresados["nombre_completo"])):echo($egresados['nombre_completo']);endif; ?>">
                 </div>
                 <div class="col-md-2"></div>
             </div>
@@ -56,7 +45,7 @@
                     <label for="nombre_proyecto" class="form-label fw-bold">Nombre del proyecto:</label>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="data[nombre_proyecto]" required="true" class="form-control" id="nombre_proyecto" value="<?php echo isset($egresados["nombre_proyecto"]) ? htmlspecialchars($egresados['nombre_proyecto']) : ''; ?>">
+                    <input type="text" name="data[nombre_proyecto]" required="true" class="form-control" id="nombre_proyecto" value="<?php if(isset($egresados["nombre_proyecto"])):echo($egresados['nombre_proyecto']);endif; ?>">
                 </div>
                 <div class="col-md-2"></div>
             </div>
@@ -98,7 +87,7 @@
                     <label for="nombre_asesor" class="form-label fw-bold">Nombre del asesor:</label>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="data[asesor]" required="true" class="form-control" id="nombre_asesor" value="<?php echo isset($egresados["asesor"]) ? htmlspecialchars($egresados['asesor']) : ''; ?>">
+                    <input type="text" name="data[asesor]" required="true" class="form-control" id="nombre_asesor" value="<?php if(isset($egresados["asesor"])):echo($egresados['asesor']);endif; ?>">
                 </div>
                 <div class="col-md-2"></div>
             </div>
@@ -111,7 +100,7 @@
                 <label for="nombre_sinodal1" class="form-label fw-bold">Sinodal 1:</label>
             </div>
             <div class="col-md-4">
-                <input type="text" name="data[sinodal1]" required="true" class="form-control" id="nombre_sinodal1">
+                <input type="text" name="data[sinodal1]" required="true" class="form-control" id="nombre_sinodal1" value="<?php if(isset($egresados["sinodal1"])):echo($egresados['sinodal1']);endif; ?>">
             </div>
             <div class="col-md-2"></div>
             </div>
@@ -124,7 +113,7 @@
                 <label for="nombre_sinodal2" class="form-label fw-bold">Sinodal 2:</label>
             </div>
             <div class="col-md-4">
-                <input type="text" name="data[sinodal2]" required="true" class="form-control" id="nombre_sinodal2">
+                <input type="text" name="data[sinodal2]" required="true" class="form-control" id="nombre_sinodal2" value="<?php if(isset($egresados["sinodal2"])):echo($egresados['sinodal2']);endif; ?>">
             </div>
             <div class="col-md-2"></div>
             </div>
@@ -137,7 +126,7 @@
                 <label for="nombre_sinodal3" class="form-label fw-bold">Sinodal 3:</label>
             </div>
             <div class="col-md-4">
-                <input type="text" name="data[sinodal3]" required="true" class="form-control" id="nombre_sinodal3">
+                <input type="text" name="data[sinodal3]" required="true" class="form-control" id="nombre_sinodal3" value="<?php if(isset($egresados["sinodal3"])):echo($egresados['sinodal3']);endif; ?>">
             </div>
             <div class="col-md-2"></div>
             </div>
@@ -176,19 +165,19 @@
 </main>
 
 <script>
-function validarSinodales() {
-    const sinodal1 = document.getElementById('nombre_sinodal1').value.trim();
-    const sinodal2 = document.getElementById('nombre_sinodal2').value.trim();
-    const sinodal3 = document.getElementById('nombre_sinodal3').value.trim();
+    function validarSinodales() {
+        const sinodal1 = document.getElementById('nombre_sinodal1').value.trim();
+        const sinodal2 = document.getElementById('nombre_sinodal2').value.trim();
+        const sinodal3 = document.getElementById('nombre_sinodal3').value.trim();
 
-    if ((sinodal1 && sinodal1 === sinodal2) || 
-        (sinodal1 && sinodal1 === sinodal3) || 
-        (sinodal2 && sinodal2 === sinodal3)) {
-        alert("Los nombres de los sinodales no deben repetirse.");
-        return false;
+        if ((sinodal1 && sinodal1 === sinodal2) || 
+            (sinodal1 && sinodal1 === sinodal3) || 
+            (sinodal2 && sinodal2 === sinodal3)) {
+            alert("Los nombres de los sinodales no deben repetirse.");
+            return false;
+        }
+        return true;
     }
-    return true;
-}
 </script>
 
 <?php require('views/footer_home.php'); ?>
