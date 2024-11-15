@@ -29,6 +29,33 @@ switch ($accion) {
         break;
     }
 
+    case 'premodificacion': {
+        include('views/egresado/validar.php');
+        break;
+    }
+
+    case 'validar': {
+        $data= $_POST['data'];
+        // print_r($data);
+        // die();
+        if (!is_null($data['no_control']) && is_numeric($data['no_control'])) {
+            $result=$app->validate($data['no_control']);
+
+            if($result){
+                echo('Egresado aspirante a titulacion encontrado');
+                $mensaje="El egresado ha sido encontrado, procediendo";
+                $tipo="success";
+                include("views/egresado/modificar.php");
+            }else{
+                echo('El egresado aspirante a titulacion no ha sido encontrado');
+                $mensaje="El egresado aspirante a titulacion no ha sido encontrado, imposible continuar";
+                $tipo="danger";
+            }
+        }
+
+        break;
+    }
+
     case 'actualizar': {
         include('views/egresado/modificar.php');
         break;

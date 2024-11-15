@@ -188,6 +188,24 @@
         return $result;
     }
 
+    function validate($id) {
+        // echo"deteniendo la app antes del if";
+        // print_r($id);
+        // die();
+        if (!is_null($id) && is_numeric($id)) {
+            $this->conexion();
+            $result = [];
+            $consulta = 'SELECT * FROM egresado where no_control=:no_control';
+            $sql = $this->con->prepare($consulta);
+            $sql->bindParam(":no_control",$id,PDO::PARAM_INT);
+            $sql -> execute();
+
+            $result = $sql->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }
+        return false;
+    }
+
     function readAll (){
         $this -> conexion();
         $result = [];
