@@ -6,25 +6,25 @@ error_reporting(E_ALL);
 require('views/header.php'); 
 ?>
 <center>
-    <h1>Nueva solicitud de titulacion</h1>
+    <h1>Nueva solicitud de titulación</h1>
 </center>
 
 <main>
     <section class="formulario">
-      <form action="egresado.php?accion=nuevo" method="POST" onsubmit="return validarSinodales();">
+      <form action="egresado.php?accion=nuevo" method="POST" onsubmit="return validarFormulario();">
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-4">
-            <label for="noControl" class="form-label fw-bold">Numero de control:</label>
+            <label for="noControl" class="form-label fw-bold">Número de control:</label>
           </div>
           <div class="col-md-4">
-            <input type="number" name="data[no_control]" required="true" class="form-control" id="noControl" aria-describedby="noControlHelp">
+            <input type="number" name="data[no_control]" required="true" class="form-control" id="noControl">
           </div>
           <div class="col-md-2"></div>
         </div>
         <br>
 
-        <!-- nombre completo -->
+        <!-- Nombre completo -->
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-4">
@@ -37,25 +37,26 @@ require('views/header.php');
         </div>
         <br>
 
-        <!-- especialidad -->
+        <!-- Especialidad -->
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-4">
             <label for="especialidad" class="form-label fw-bold">Especialidad:</label>
           </div>
           <div class="col-md-4">
-            <select name="data[especialidad]" required="true" class="form-select" aria-label="Seleccion de la especialidad" id="especialidad">
+            <select name="data[especialidad]" required="true" class="form-select" id="especialidad">
               <option selected>Seleccione una opción</option>
-              <option value="1">IINFO</option>
-              <option value="2">LINFO</option>
-              <option value="3">ISC</option>
+              <option value="1">Ingeniería en Informática</option>
+              <option value="2">Licenciatura en Informática</option>
+              <option value="3">Ingeniería en Sistemas Computacionales</option>
+              <option value="4">Otra</option>
             </select>
           </div>
           <div class="col-md-2"></div>
         </div>
         <br>
 
-        <!-- nombre del proyecto -->
+        <!-- Nombre del proyecto -->
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-4">
@@ -68,36 +69,32 @@ require('views/header.php');
         </div>
         <br>
 
-        <!-- opcion de titulacion -->
+        <!-- Opción de titulación -->
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-4">
             <label for="opcTitulacion" class="form-label fw-bold">Opción de titulación:</label>
           </div>
           <div class="col-md-4">
-            <select name="data[opc_titulacion]" required="true" class="form-select" aria-label="Seleccion de la opción de titulación" id="opcTitulacion">
+            <select name="data[opc_titulacion]" required="true" class="form-select" id="opcTitulacion">
               <option selected>Seleccione una opción</option>
-              <option value="1">I - tesis profesional</option>
-              <option value="2">II - libros de texto o prototipos didacticos</option>
-              <option value="3">III - proyecto de investigacion</option>
-              <option value="4">IV - diseño o rediseño de equipo, aparato o maquinaria</option>
-              <option value="5">V - cursos especiales de titulación</option>
-              <option value="6">VI - examen global por areas de conocimiento</option>
-              <option value="7">VII - memoria de experiencia profesional</option>
-              <option value="8">VIII - escolaridad por promedio</option>
-              <option value="9">IX - escolaridad por estudios de posgrado</option>
-              <option value="10">X - memoria de residencia profesional</option>
-              <option value="11">XIa - titulación integral</option>
-              <option value="12">XIb - titulación integral</option>
-              <option value="13">XIc - titulación integral</option>
-              <option value="14">XId - titulación integral</option>
+              <option value="1">I - Tesis profesional</option>
+              <option value="2">II - Prototipos didácticos</option>
+              <option value="3">III - Proyecto de investigación</option>
+              <option value="4">IV - Diseño de equipos</option>
+              <option value="5">V - Cursos especiales</option>
+              <option value="6">VI - Examen global</option>
+              <option value="7">VII - Memoria profesional</option>
+              <option value="8">VIII - Escolaridad por promedio</option>
+              <option value="9">IX - Escolaridad por estudios de posgrado</option>
+              <option value="10">X - Memoria de residencia profesional</option>
             </select>
           </div>
           <div class="col-md-2"></div>
         </div>
         <br>
 
-        <!-- nombre del asesor -->
+        <!-- Nombre del asesor -->
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-4">
@@ -110,7 +107,7 @@ require('views/header.php');
         </div>
         <br>
 
-        <!-- sinodal 1 -->
+        <!-- Sinodal 1 -->
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-4">
@@ -123,7 +120,7 @@ require('views/header.php');
         </div>
         <br>
 
-        <!-- sinodal 2 -->
+        <!-- Sinodal 2 -->
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-4">
@@ -136,7 +133,7 @@ require('views/header.php');
         </div>
         <br>
 
-        <!-- sinodal 3 -->
+        <!-- Sinodal 3 -->
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-4">
@@ -149,43 +146,57 @@ require('views/header.php');
         </div>
         <br>
 
-        <!-- estatus -->
+        <!-- Estatus -->
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-4">
             <label for="estatus" class="form-label fw-bold">Estatus:</label>
           </div>
           <div class="col-md-4">
-            <select name="data[status]" required="true" class="form-select" aria-label="Seleccion del estatus" id="estatus">
+            <select name="data[status]" required="true" class="form-select" id="estatus" onchange="toggleFechaExamen();">
               <option selected>Seleccione una opción</option>
-              <option value="1">1 realizando oficio de aprobacion</option>
-              <option value="2">2 oficio de aprobacion entregado</option>
-              <option value="3">3 oficio de NO INCONVENIENCIA recibido</option>
-              <option value="4">4 realizando oficio de AVISO DE ACTO RECEPCIONAL</option>
-              <option value="5">5 envio de AVISO DE ACTO RECEPCIONAL a egresado y jurado</option>
-              <option value="6">6 titulado</option>
+              <option value="1">1 - En proceso</option>
+              <option value="2">2 - En revisión</option>
+              <option value="3">3 - Aprobado</option>
+              <option value="4">4 - Acto Recepcional</option>
+              <option value="5">5 - Titulado</option>
             </select>
           </div>
           <div class="col-md-2"></div>
         </div>
+        <br>
 
-        <br><br>
+        <!-- Fecha de examen (opcional) -->
+        <div class="row" id="fechaExamenRow" style="display: none;">
+          <div class="col-md-2"></div>
+          <div class="col-md-4">
+            <label for="fecha_examen" class="form-label fw-bold">Fecha de examen:</label>
+          </div>
+          <div class="col-md-4">
+            <input type="date" name="data[fecha_examen]" class="form-control" id="fecha_examen">
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+        <br>
+
         <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-                <input type="submit" name="data[enviar]" required="true" class="btn btn-primary w-100" value="Capturar">
-            </div>
-            <div class="col-md-4"></div>
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <input type="submit" name="data[enviar]" required="true" class="btn btn-primary w-100" value="Capturar">
+          </div>
+          <div class="col-md-4"></div>
         </div>
       </form>
     </section>
   </main>
 
   <script>
-    function validarSinodales() {
+    function validarFormulario() {
       const sinodal1 = document.getElementById('nombre_sinodal1').value.trim();
       const sinodal2 = document.getElementById('nombre_sinodal2').value.trim();
       const sinodal3 = document.getElementById('nombre_sinodal3').value.trim();
+      const estatus = document.getElementById('estatus').value;
+      const fechaExamen = document.getElementById('fecha_examen').value;
 
       if ((sinodal1 && sinodal1 === sinodal2) || 
           (sinodal1 && sinodal1 === sinodal3) || 
@@ -193,7 +204,22 @@ require('views/header.php');
         alert("Los nombres de los sinodales no deben repetirse.");
         return false;
       }
+
+      if (estatus >= 3 && !fechaExamen) {
+        alert("Debe capturar la fecha de examen si el estatus es igual o mayor a 3.");
+        return false;
+      }
       return true;
+    }
+
+    function toggleFechaExamen() {
+      const estatus = parseInt(document.getElementById('estatus').value);
+      const fechaExamenRow = document.getElementById('fechaExamenRow');
+      if (estatus >= 3) {
+        fechaExamenRow.style.display = "flex";
+      } else {
+        fechaExamenRow.style.display = "none";
+      }
     }
   </script>
 

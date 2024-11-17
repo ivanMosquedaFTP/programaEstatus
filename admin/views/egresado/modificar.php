@@ -1,26 +1,33 @@
-<?php require('views/header.php'); ?>
+<?php 
+require('views/header.php'); 
+?>
+
 <center>
     <h1>Modificar solicitud de titulación</h1>
 </center>
 
 <main>
     <section class="formulario">
-        <form action="egresado.php?accion=modificar" method="POST" onsubmit="return validarSinodales();">
+        <?php if (isset($_GET['error']) && $_GET['error'] === 'sinodales_repetidos'): ?>
+            <p style="color: red; text-align: center;">Error: Los nombres de los sinodales no deben repetirse.</p>
+        <?php endif; ?>
+        <form action="modificar_formulario.php" method="POST" onsubmit="return validarFormulario();">
             <input type="hidden" name="data[no_control]" value="<?php echo $egresados['no_control']; ?>">
-            <!-- nombre completo -->
+
+            <!-- Nombre completo -->
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-4">
                     <label for="nombre" class="form-label fw-bold">Nombre completo:</label>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="data[nombre_completo]" required="true" class="form-control" id="nombre" value="<?php if(isset($egresados["nombre_completo"])):echo($egresados['nombre_completo']);endif; ?>">
+                    <input type="text" name="data[nombre_completo]" required="true" class="form-control" id="nombre" value="<?php if(isset($egresados['nombre_completo'])):echo($egresados['nombre_completo']);endif; ?>">
                 </div>
                 <div class="col-md-2"></div>
             </div>
             <br>
 
-            <!-- especialidad -->
+            <!-- Especialidad -->
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-4">
@@ -38,20 +45,20 @@
             </div>
             <br>
 
-            <!-- nombre del proyecto -->
+            <!-- Nombre del proyecto -->
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-4">
                     <label for="nombre_proyecto" class="form-label fw-bold">Nombre del proyecto:</label>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="data[nombre_proyecto]" required="true" class="form-control" id="nombre_proyecto" value="<?php if(isset($egresados["nombre_proyecto"])):echo($egresados['nombre_proyecto']);endif; ?>">
+                    <input type="text" name="data[nombre_proyecto]" required="true" class="form-control" id="nombre_proyecto" value="<?php if(isset($egresados['nombre_proyecto'])):echo($egresados['nombre_proyecto']);endif; ?>">
                 </div>
                 <div class="col-md-2"></div>
             </div>
             <br>
 
-            <!-- opcion de titulacion -->
+            <!-- Opción de titulación -->
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-4">
@@ -60,94 +67,86 @@
                 <div class="col-md-4">
                     <select name="data[opc_titulacion]" required="true" class="form-select" id="opcTitulacion">
                         <option value="" selected>Seleccione una opción</option>
-                        <option value="1">I - tesis profesional</option>
-                        <option value="2">II - libros de texto o prototipos didácticos</option>
-                        <option value="3">III - proyecto de investigación</option>
-                        <option value="4">IV - diseño o rediseño de equipo, aparato o maquinaria</option>
-                        <option value="5">V - cursos especiales de titulación</option>
-                        <option value="6">VI - examen global por áreas de conocimiento</option>
-                        <option value="7">VII - memoria de experiencia profesional</option>
-                        <option value="8">VIII - escolaridad por promedio</option>
-                        <option value="9">IX - escolaridad por estudios de posgrado</option>
-                        <option value="10">X - memoria de residencia profesional</option>
-                        <option value="11">XIa - titulación integral</option>
-                        <option value="12">XIb - titulación integral</option>
-                        <option value="13">XIc - titulación integral</option>
-                        <option value="14">XId - titulación integral</option>
+                        <option value="1">I - Tesis profesional</option>
+                        <option value="2">II - Libros de texto o prototipos didácticos</option>
+                        <option value="3">III - Proyecto de investigación</option>
+                        <option value="4">IV - Diseño o rediseño de equipo, aparato o maquinaria</option>
+                        <option value="5">V - Cursos especiales de titulación</option>
+                        <option value="6">VI - Examen global por áreas de conocimiento</option>
+                        <option value="7">VII - Memoria de experiencia profesional</option>
+                        <option value="8">VIII - Escolaridad por promedio</option>
+                        <option value="9">IX - Escolaridad por estudios de posgrado</option>
+                        <option value="10">X - Memoria de residencia profesional</option>
                     </select>
                 </div>
                 <div class="col-md-2"></div>
             </div>
             <br>
 
-            <!-- nombre del asesor -->
+            <!-- Sinodales -->
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-4">
-                    <label for="nombre_asesor" class="form-label fw-bold">Nombre del asesor:</label>
+                    <label for="nombre_sinodal1" class="form-label fw-bold">Sinodal 1:</label>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" name="data[asesor]" required="true" class="form-control" id="nombre_asesor" value="<?php if(isset($egresados["asesor"])):echo($egresados['asesor']);endif; ?>">
+                    <input type="text" name="data[sinodal1]" required="true" class="form-control" id="nombre_sinodal1" value="<?php if(isset($egresados['sinodal1'])):echo($egresados['sinodal1']);endif; ?>">
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                    <label for="nombre_sinodal2" class="form-label fw-bold">Sinodal 2:</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" name="data[sinodal2]" required="true" class="form-control" id="nombre_sinodal2" value="<?php if(isset($egresados['sinodal2'])):echo($egresados['sinodal2']);endif; ?>">
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                    <label for="nombre_sinodal3" class="form-label fw-bold">Sinodal 3:</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" name="data[sinodal3]" required="true" class="form-control" id="nombre_sinodal3" value="<?php if(isset($egresados['sinodal3'])):echo($egresados['sinodal3']);endif; ?>">
                 </div>
                 <div class="col-md-2"></div>
             </div>
             <br>
 
-            <!-- sinodal 1 -->
-            <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-4">
-                <label for="nombre_sinodal1" class="form-label fw-bold">Sinodal 1:</label>
-            </div>
-            <div class="col-md-4">
-                <input type="text" name="data[sinodal1]" required="true" class="form-control" id="nombre_sinodal1" value="<?php if(isset($egresados["sinodal1"])):echo($egresados['sinodal1']);endif; ?>">
-            </div>
-            <div class="col-md-2"></div>
-            </div>
-            <br>
-
-            <!-- sinodal 2 -->
-            <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-4">
-                <label for="nombre_sinodal2" class="form-label fw-bold">Sinodal 2:</label>
-            </div>
-            <div class="col-md-4">
-                <input type="text" name="data[sinodal2]" required="true" class="form-control" id="nombre_sinodal2" value="<?php if(isset($egresados["sinodal2"])):echo($egresados['sinodal2']);endif; ?>">
-            </div>
-            <div class="col-md-2"></div>
-            </div>
-            <br>
-
-            <!-- sinodal 3 -->
-            <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-4">
-                <label for="nombre_sinodal3" class="form-label fw-bold">Sinodal 3:</label>
-            </div>
-            <div class="col-md-4">
-                <input type="text" name="data[sinodal3]" required="true" class="form-control" id="nombre_sinodal3" value="<?php if(isset($egresados["sinodal3"])):echo($egresados['sinodal3']);endif; ?>">
-            </div>
-            <div class="col-md-2"></div>
-            </div>
-            <br>
-
-            <!-- estatus -->
+            <!-- Estatus -->
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-4">
                     <label for="estatus" class="form-label fw-bold">Estatus:</label>
                 </div>
                 <div class="col-md-4">
-                    <select name="data[status]" required="true" class="form-select" id="estatus">
+                    <select name="data[status]" required="true" class="form-select" id="estatus" onchange="toggleFechaExamen();">
                         <option value="" selected>Seleccione una opción</option>
-                        <option value="1">1 - realizando oficio de aprobación</option>
-                        <option value="2">2 - oficio de aprobación entregado</option>
-                        <option value="3">3 - oficio de NO INCONVENIENCIA recibido</option>
-                        <option value="4">4 - realizando oficio de AVISO DE ACTO RECEPCIONAL</option>
-                        <option value="5">5 - envío de AVISO DE ACTO RECEPCIONAL a egresado y jurado</option>
-                        <option value="6">6 - titulado</option>
+                        <option value="1">1 - Realizando oficio de aprobación</option>
+                        <option value="2">2 - Oficio de aprobación entregado</option>
+                        <option value="3">3 - Oficio de NO INCONVENIENCIA recibido</option>
+                        <option value="4">4 - Realizando oficio de AVISO DE ACTO RECEPCIONAL</option>
+                        <option value="5">5 - Envío de AVISO DE ACTO RECEPCIONAL a egresado y jurado</option>
+                        <option value="6">6 - Titulado</option>
                     </select>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <br>
+
+            <!-- Fecha de examen -->
+            <div class="row" id="fechaExamenRow" style="display: none;">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                    <label for="fecha_examen" class="form-label fw-bold">Fecha de examen:</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="date" name="data[fecha_examen]" class="form-control" id="fecha_examen" value="<?php if(isset($egresados['fecha_examen'])):echo($egresados['fecha_examen']);endif; ?>">
                 </div>
                 <div class="col-md-2"></div>
             </div>
@@ -156,7 +155,7 @@
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <input type="submit" name="data[enviar]" required="true" class="btn btn-primary w-100" value="Capturar">
+                    <input type="submit" name="data[enviar]" required="true" class="btn btn-primary w-100" value="Modificar">
                 </div>
                 <div class="col-md-4"></div>
             </div>
@@ -165,6 +164,30 @@
 </main>
 
 <script>
+    function validarFormulario() {
+        const estatus = parseInt(document.getElementById('estatus').value.trim());
+        const fechaExamen = document.getElementById('fecha_examen').value.trim();
+
+        if (estatus >= 3 && !fechaExamen) {
+            alert("Debe capturar la fecha de examen si el estatus es igual o mayor a 3.");
+            return false;
+        }
+        return validarSinodales();
+    }
+
+    function toggleFechaExamen() {
+        const estatus = parseInt(document.getElementById('estatus').value.trim());
+        const fechaExamenRow = document.getElementById('fechaExamenRow');
+        if (estatus >= 3) {
+            fechaExamenRow.style.display = "flex";
+        } else {
+            fechaExamenRow.style.display = "none";
+            document.getElementById('fecha_examen').value = "";
+        }
+    }
+
+    document.getElementById('estatus').addEventListener('change', toggleFechaExamen);
+
     function validarSinodales() {
         const sinodal1 = document.getElementById('nombre_sinodal1').value.trim();
         const sinodal2 = document.getElementById('nombre_sinodal2').value.trim();
