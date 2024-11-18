@@ -89,6 +89,9 @@
               <option value="9">IX - Escolaridad por estudios de posgrado</option>
               <option value="10">X - Memoria de residencia profesional</option>
               <option value="11">XIa - Titulacion integral</option>
+              <!-- <option value="12">XIb - Proyecto de innovacion</option>
+              <option value="13">XIc - Proyecto de investigación</option>
+              <option value="14">XId - Proyecto de investigación</option> -->
             </select>
           </div>
           <div class="col-md-4"></div>

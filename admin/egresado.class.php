@@ -74,7 +74,8 @@
 
         $insertar -> bindParam(':status', $stat, PDO::PARAM_INT);
 
-        $insertar -> bindParam(':fecha_examen', $data['fecha_examen'], PDO::PARAM_STR);
+        $fecha_examen = ($data['status'] >= 3) ? $data['fecha_examen'] : null;
+        $insertar -> bindParam(':fecha_examen', $fecha_examen, PDO::PARAM_STR);
         $insertar -> bindParam(':asesor', $data['asesor'], PDO::PARAM_STR);
         $insertar -> bindParam(':sinodal1', $data['sinodal1'], PDO::PARAM_STR);
         $insertar -> bindParam(':sinodal2', $data['sinodal2'], PDO::PARAM_STR);
