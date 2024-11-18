@@ -27,24 +27,24 @@
 
         <!-- Nombre completo -->
         <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-4">
+          <div class="col-md-4"></div>
+          <div class="col-md-2">
             <label for="nombre" class="form-label fw-bold">Nombre completo:</label>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
             <input type="text" name="data[nombre_completo]" required="true" class="form-control" id="nombre">
           </div>
-          <div class="col-md-2"></div>
+          <div class="col-md-4"></div>
         </div>
         <br>
 
         <!-- Especialidad -->
         <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-4">
+          <div class="col-md-4"></div>
+          <div class="col-md-2">
             <label for="especialidad" class="form-label fw-bold">Especialidad:</label>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
             <select name="data[especialidad]" required="true" class="form-select" id="especialidad">
               <option selected>Seleccione una opción</option>
               <option value="1">Ingeniería en Informática</option>
@@ -53,30 +53,30 @@
               <option value="4">Otra</option>
             </select>
           </div>
-          <div class="col-md-2"></div>
+          <div class="col-md-4"></div>
         </div>
         <br>
 
         <!-- Nombre del proyecto -->
         <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-4">
+          <div class="col-md-4"></div>
+          <div class="col-md-2">
             <label for="nombre_proyecto" class="form-label fw-bold">Nombre del proyecto:</label>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
             <input type="text" name="data[nombre_proyecto]" required="true" class="form-control" id="nombre_proyecto">
           </div>
-          <div class="col-md-2"></div>
+          <div class="col-md-4"></div>
         </div>
         <br>
 
         <!-- Opción de titulación -->
         <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-4">
+          <div class="col-md-4"></div>
+          <div class="col-md-2">
             <label for="opcTitulacion" class="form-label fw-bold">Opción de titulación:</label>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
             <select name="data[opc_titulacion]" required="true" class="form-select" id="opcTitulacion">
               <option selected>Seleccione una opción</option>
               <option value="1">I - Tesis profesional</option>
@@ -91,69 +91,69 @@
               <option value="10">X - Memoria de residencia profesional</option>
             </select>
           </div>
-          <div class="col-md-2"></div>
+          <div class="col-md-4"></div>
         </div>
         <br>
 
         <!-- Nombre del asesor -->
         <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-4">
+          <div class="col-md-4"></div>
+          <div class="col-md-2">
             <label for="nombre_asesor" class="form-label fw-bold">Nombre del asesor:</label>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
             <input type="text" name="data[asesor]" required="true" class="form-control" id="nombre_asesor">
           </div>
-          <div class="col-md-2"></div>
+          <div class="col-md-4"></div>
         </div>
         <br>
 
         <!-- Sinodal 1 -->
         <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-4">
+          <div class="col-md-4"></div>
+          <div class="col-md-2">
             <label for="nombre_sinodal1" class="form-label fw-bold">Sinodal 1:</label>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
             <input type="text" name="data[sinodal1]" required="true" class="form-control" id="nombre_sinodal1">
           </div>
-          <div class="col-md-2"></div>
+          <div class="col-md-4"></div>
         </div>
         <br>
 
         <!-- Sinodal 2 -->
         <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-4">
+          <div class="col-md-4"></div>
+          <div class="col-md-2">
             <label for="nombre_sinodal2" class="form-label fw-bold">Sinodal 2:</label>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
             <input type="text" name="data[sinodal2]" required="true" class="form-control" id="nombre_sinodal2">
           </div>
-          <div class="col-md-2"></div>
+          <div class="col-md-4"></div>
         </div>
         <br>
 
         <!-- Sinodal 3 -->
         <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-4">
+          <div class="col-md-4"></div>
+          <div class="col-md-2">
             <label for="nombre_sinodal3" class="form-label fw-bold">Sinodal 3:</label>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
             <input type="text" name="data[sinodal3]" required="true" class="form-control" id="nombre_sinodal3">
           </div>
-          <div class="col-md-2"></div>
+          <div class="col-md-4"></div>
         </div>
         <br>
 
         <!-- Estatus -->
         <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-4">
+          <div class="col-md-4"></div>
+          <div class="col-md-2">
             <label for="estatus" class="form-label fw-bold">Estatus:</label>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
             <select name="data[status]" required="true" class="form-select" id="estatus" onchange="toggleFechaExamen();">
               <option selected>Seleccione una opción</option>
               <option value="1">1 - En proceso</option>
@@ -163,20 +163,20 @@
               <option value="5">5 - Titulado</option>
             </select>
           </div>
-          <div class="col-md-2"></div>
+          <div class="col-md-4"></div>
         </div>
         <br>
 
         <!-- Fecha de examen (opcional) -->
         <div class="row" id="fechaExamenRow" style="display: none;">
-          <div class="col-md-2"></div>
-          <div class="col-md-4">
+          <div class="col-md-4"></div>
+          <div class="col-md-2">
             <label for="fecha_examen" class="form-label fw-bold">Fecha de examen:</label>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
             <input type="date" name="data[fecha_examen]" class="form-control" id="fecha_examen">
           </div>
-          <div class="col-md-2"></div>
+          <div class="col-md-4"></div>
         </div>
         <br>
 
