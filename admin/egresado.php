@@ -56,6 +56,39 @@ switch ($accion) {
         break;
     }
 
+    case 'preconsulta': {
+        include('views/egresado/validarParaConsulta.php');
+        break;
+    }
+
+    case 'consultaPorStatus': {
+        $data= $_POST['data'];
+        // echo'<pre />';
+        // print_r($data);
+        // die();
+        if (!is_null($data['status']) && is_numeric($data['status']) && $data['status'] <= 6) {
+            $result=$app->validateStatus($data['status']);
+
+        // echo'<pre />';
+        // print_r($result);
+        // die();
+
+            if($result){
+                $mensaje="El status ha sido encontrado, procediendo";
+                $tipo="success";
+                $egresados = $app->readAllForStatusQuery($data['status']);
+        // echo'<pre />';
+        // print_r($egresados);
+        // die();
+                include("views/egresado/consultarPorStatus.php");
+            }else{
+                $mensaje="El status no ha sido encontrado, imposible continuar";
+                $tipo="danger";
+            }
+        }
+        break;
+    }
+
     case 'actualizar': {
         include('views/egresado/modificar.php');
         break;

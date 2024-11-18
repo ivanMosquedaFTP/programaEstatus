@@ -214,11 +214,37 @@
         return false;
     }
 
+    function validateStatus($status) {
+        if (!is_null($status) && is_numeric($status)) {
+            $this->conexion();
+            $result = [];
+            $consulta = 'SELECT status FROM egresado where status=:status';
+            $sql = $this->con->prepare($consulta);
+            $sql->bindParam(":status",$status,PDO::PARAM_INT);
+            $sql -> execute();
+
+            $result = $sql->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }
+        return false;
+    }
+
     function readAll (){
         $this -> conexion();
         $result = [];
         $consulta ='select * from egresado';
         $sql = $this->con->prepare ($consulta); 
+        $sql -> execute();
+        $result = $sql -> fetchALL(PDO::FETCH_ASSOC);    
+        return $result;
+    }
+
+    function readAllForStatusQuery ($status){
+        $this -> conexion();
+        $result = [];
+        $consulta ='select * from egresado where status=:status';
+        $sql = $this->con->prepare ($consulta); 
+        $sql->bindParam(":status",$status,PDO::PARAM_INT);
         $sql -> execute();
         $result = $sql -> fetchALL(PDO::FETCH_ASSOC);    
         return $result;
