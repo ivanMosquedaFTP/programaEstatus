@@ -90,7 +90,7 @@
         $sql = 'update egresado set nombre_completo=:nombre_completo, especialidad=:especialidad, nombre_proyecto=:nombre_proyecto, opc_titulacion=:opc_titulacion, status=:status, fecha_examen=:fecha_examen, asesor=:asesor, sinodal1=:sinodal1, sinodal2=:sinodal2, sinodal3=:sinodal3 where no_control=:no_control;';
         $modificar=$this->con->prepare($sql);
         $modificar -> bindParam(':nombre_completo', $data['nombre_completo'], PDO::PARAM_STR);
-
+    
         $espec = "";
         if (!is_null($data['especialidad']) && $data['especialidad'] == 1) {
             $espec = "IINFO";
@@ -99,11 +99,11 @@
         } else if (!is_null($data['especialidad']) && $data['especialidad'] == 3) {
             $espec = "ISC";
         }
-
+    
         $modificar -> bindParam(':especialidad', $espec, PDO::PARAM_STR);
-
+    
         $modificar -> bindParam(':nombre_proyecto', $data['nombre_proyecto'], PDO::PARAM_STR);
-
+    
         $opc = "";
         if (!is_null($data['opc_titulacion']) && $data['opc_titulacion'] == 1) {
             $opc = "I";
@@ -134,9 +134,9 @@
         } else if (!is_null($data['opc_titulacion']) && $data['opc_titulacion'] == 14) {
             $opc = "XId";
         }
-
+    
         $modificar -> bindParam(':opc_titulacion', $opc, PDO::PARAM_STR);
-
+    
         $stat = "";
         if (!is_null($data['status']) && $data['status'] == 1) {
             $stat = "1";
@@ -151,17 +151,25 @@
         } else if (!is_null($data['status']) && $data['status'] == 6) {
             $stat = "6";
         }
-
+    
         $modificar -> bindParam(':status', $stat, PDO::PARAM_INT);
-
-        $modificar -> bindParam(':fecha_examen', $data['fecha_examen'], PDO::PARAM_STR);
+    
+        // Implement logic for 'fecha_examen' based on 'status'
+        if ($stat <= 2) {
+            $fechaExam = null; // Clear the date if status is <= 2
+        } else {
+            $fechaExam = (!is_null($data['fecha_examen'])) ? $data['fecha_examen'] : "00-00-00";
+        }
+    
+        $modificar -> bindValue(':fecha_examen', $fechaExam, is_null($fechaExam) ? PDO::PARAM_NULL : PDO::PARAM_STR);
+    
         $modificar -> bindParam(':asesor', $data['asesor'], PDO::PARAM_STR);
         $modificar -> bindParam(':sinodal1', $data['sinodal1'], PDO::PARAM_STR);
         $modificar -> bindParam(':sinodal2', $data['sinodal2'], PDO::PARAM_STR);
         $modificar -> bindParam(':sinodal3', $data['sinodal3'], PDO::PARAM_STR);
         $modificar -> bindParam(':no_control', $data['no_control'], PDO::PARAM_STR);
         $modificar->execute();
-        $result= $modificar->rowCount();
+        $result = $modificar->rowCount();
         return $result;
     }
 
