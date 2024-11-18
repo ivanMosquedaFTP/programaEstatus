@@ -14,9 +14,14 @@
               <th scope="col">no. Control</th>
               <th scope="col">Nombre</th>
               <th scope="col">Especialidad</th>
+              <th scope="col">Nombre de proyecto</th>
               <th scope="col">Opc. Titulación</th>
               <th scope="col">Estatus</th>
               <th scope="col">Fecha de examen de titulación</th>
+              <th scope="col">Asesor</th>
+              <th scope="col">Sinodal 1</th>
+              <th scope="col">Sinodal 2</th>
+              <th scope="col">Sinodal 3</th>
             </tr>
           </thead>
           <tbody>
@@ -27,9 +32,14 @@
                     echo "<th scope='row'>" . htmlspecialchars($egresado['no_control']) . "</th>";
                     echo "<td>" . htmlspecialchars($egresado['nombre_completo']) . "</td>";
                     echo "<td>" . htmlspecialchars($egresado['especialidad']) . "</td>";
+                    echo "<td>" . htmlspecialchars($egresado['nombre_proyecto']) . "</td>";
                     echo "<td>" . htmlspecialchars($egresado['opc_titulacion']) . "</td>";
                     echo "<td>" . htmlspecialchars($egresado['status']) . "</td>";
                     echo "<td>" . htmlspecialchars($egresado['fecha_examen']) . "</td>";
+                    echo "<td>" . htmlspecialchars($egresado['asesor']) . "</td>";
+                    echo "<td>" . htmlspecialchars($egresado['sinodal1']) . "</td>";
+                    echo "<td>" . htmlspecialchars($egresado['sinodal2']) . "</td>";
+                    echo "<td>" . htmlspecialchars($egresado['sinodal3']) . "</td>";
                     echo "</tr>";
                 }
             } else {
