@@ -3,6 +3,7 @@
     <h1>Primero introduzca el numero de control del egresado aspirante a titulacion que desea modificar</h1>
 </center>
 
+<br>
 <main>
     <br>
     <section class="formulario">

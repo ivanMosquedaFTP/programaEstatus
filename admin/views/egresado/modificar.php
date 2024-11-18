@@ -1,11 +1,11 @@
 <?php 
-require('views/header.php'); 
+    require('views/headerWithoutJumbotron.php');
 ?>
 
 <center>
     <h1>Modificar solicitud de titulación</h1>
 </center>
-
+<br> <br>
 <main>
     <section class="formulario">
         <?php if (isset($_GET['error']) && $_GET['error'] === 'sinodales_repetidos'): ?>

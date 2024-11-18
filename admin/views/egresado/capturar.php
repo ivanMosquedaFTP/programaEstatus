@@ -1,26 +1,27 @@
 <?php 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+  ini_set('display_startup_errors', 1);
+  error_reporting(E_ALL);
 
-require('views/header.php'); 
+  require('views/headerWithoutJumbotron.php');
 ?>
 <center>
     <h1>Nueva solicitud de titulación</h1>
 </center>
+<br>
 
 <main>
     <section class="formulario">
       <form action="egresado.php?accion=nuevo" method="POST" onsubmit="return validarFormulario();">
         <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-4">
+          <div class="col-md-4"></div>
+          <div class="col-md-2">
             <label for="noControl" class="form-label fw-bold">Número de control:</label>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
             <input type="number" name="data[no_control]" required="true" class="form-control" id="noControl">
           </div>
-          <div class="col-md-2"></div>
+          <div class="col-md-4"></div>
         </div>
         <br>
 
