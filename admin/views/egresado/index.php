@@ -8,7 +8,7 @@
           <br> <br>
           <a class="btn btn-primary btn-lg w-100" href="egresado.php?accion=premodificacion">Modificar información de un egresado.</a>
           <br> <br>
-          <a class="btn btn-primary btn-lg w-100" href="views/egresado/construccion.php">Consulta por estatus.</a>
+          <a class="btn btn-primary btn-lg w-100" href="egresado.php?accion=preconsulta">Consulta por estatus.</a>
           <br> <br>
           <a class="btn btn-primary btn-lg w-100" href="views/egresado/construccion.php">Consulta por opción de titulación.</a>
           <br> <br>
