@@ -47,10 +47,9 @@
           <div class="col-md-2">
             <select name="data[especialidad]" required="true" class="form-select" id="especialidad">
               <option selected>Seleccione una opción</option>
-              <option value="1">Ingeniería en Informática</option>
-              <option value="2">Licenciatura en Informática</option>
-              <option value="3">Ingeniería en Sistemas Computacionales</option>
-              <option value="4">Otra</option>
+              <option value="1">IINFO</option>
+              <option value="2">LINFO</option>
+              <option value="3">ISC</option>
             </select>
           </div>
           <div class="col-md-4"></div>
@@ -89,6 +88,7 @@
               <option value="8">VIII - Escolaridad por promedio</option>
               <option value="9">IX - Escolaridad por estudios de posgrado</option>
               <option value="10">X - Memoria de residencia profesional</option>
+              <option value="11">XIa - Titulacion integral</option>
             </select>
           </div>
           <div class="col-md-4"></div>
@@ -156,11 +156,13 @@
           <div class="col-md-2">
             <select name="data[status]" required="true" class="form-select" id="estatus" onchange="toggleFechaExamen();">
               <option selected>Seleccione una opción</option>
-              <option value="1">1 - En proceso</option>
-              <option value="2">2 - En revisión</option>
-              <option value="3">3 - Aprobado</option>
-              <option value="4">4 - Acto Recepcional</option>
-              <option value="5">5 - Titulado</option>
+              <option value="0">0 - En espera de documentos</option>
+              <option value="1">1 - Realizando oficio de aprobavacion</option>
+              <option value="2">2 - Oficio de aprovacion entregado</option>
+              <option value="3">3 - Oficio de no inconvenencia recibido</option>
+              <option value="4">4 - Realizando oficio de aviso de acto recepcional</option>
+              <option value="5">5 - Envio de aviso de acto recepcional a egresado</option>
+              <option value="6">6 - Titulado</option>
             </select>
           </div>
           <div class="col-md-4"></div>
