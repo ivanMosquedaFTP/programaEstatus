@@ -82,10 +82,13 @@ switch ($accion) {
         // die();
                 include("views/egresado/consultarPorStatus.php");
             }else{
+                echo("No hay ningun egresado aspirante a titulacion con el status ".$data['status'].", imposible continuar");
+                include('views/footer_home.php');
                 $mensaje="El status no ha sido encontrado, imposible continuar";
                 $tipo="danger";
             }
         }
+
         break;
     }
 

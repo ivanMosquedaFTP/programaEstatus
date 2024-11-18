@@ -33,4 +33,4 @@
     </section>
 </main>
 
-<?php require('views/footer.php'); ?>
+<?php require('views/footer_home.php'); ?>
