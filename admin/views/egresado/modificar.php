@@ -60,49 +60,61 @@
 
             <!-- Opción de titulación -->
             <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-2">
-        <label for="opcTitulacion" class="form-label fw-bold">Opción de titulación:</label>
-    </div>
-    <div class="col-md-2">
-        <select name="data[opc_titulacion]" required="true" class="form-select" id="opcTitulacion">
-            <option value="" <?php echo (!isset($egresados['opc_titulacion']) || $egresados['opc_titulacion'] == "") ? 'selected' : ''; ?>>Seleccione una opción</option>
-            <?php
-            $titOptions = [
-                1 => "I - Tesis profesional",
-                2 => "II - Libros de texto o prototipos didácticos",
-                3 => "III - Proyecto de investigación",
-                4 => "IV - Diseño o rediseño de equipo, aparato o maquinaria",
-                5 => "V - Cursos especiales de titulación",
-                6 => "VI - Examen global por áreas de conocimiento",
-                7 => "VII - Memoria de experiencia profesional",
-                8 => "VIII - Escolaridad por promedio",
-                9 => "IX - Escolaridad por estudios de posgrado",
-                10 => "X - Memoria de residencia profesional",
-                11 => "XIa - Estudios complementarios parte A",
-                12 => "XIb - Estudios complementarios parte B",
-                13 => "XIc - Estudios complementarios parte C",
-                14 => "XId - Estudios complementarios parte D"
-            ];
-            
-            // Convertir números romanos al entero correspondiente
-            $romanToInteger = [
-                "I" => 1, "II" => 2, "III" => 3, "IV" => 4, "V" => 5, 
-                "VI" => 6, "VII" => 7, "VIII" => 8, "IX" => 9, "X" => 10,
-                "XIa" => 11, "XIb" => 12, "XIc" => 13, "XId" => 14
-            ];
-            $currentOption = isset($egresados['opc_titulacion']) ? $romanToInteger[$egresados['opc_titulacion']] : "";
+                <div class="col-md-4"></div>
+                <div class="col-md-2">
+                    <label for="opcTitulacion" class="form-label fw-bold">Opción de titulación:</label>
+                </div>
+                <div class="col-md-2">
+                    <select name="data[opc_titulacion]" required="true" class="form-select" id="opcTitulacion">
+                        <option value="" <?php echo (!isset($egresados['opc_titulacion']) || $egresados['opc_titulacion'] == "") ? 'selected' : ''; ?>>Seleccione una opción</option>
+                        <?php
+                        $titOptions = [
+                            1 => "I - Tesis profesional",
+                            2 => "II - Libros de texto o prototipos didácticos",
+                            3 => "III - Proyecto de investigación",
+                            4 => "IV - Diseño o rediseño de equipo, aparato o maquinaria",
+                            5 => "V - Cursos especiales de titulación",
+                            6 => "VI - Examen global por áreas de conocimiento",
+                            7 => "VII - Memoria de experiencia profesional",
+                            8 => "VIII - Escolaridad por promedio",
+                            9 => "IX - Escolaridad por estudios de posgrado",
+                            10 => "X - Memoria de residencia profesional",
+                            11 => "XIa - Estudios complementarios parte A",
+                            12 => "XIb - Estudios complementarios parte B",
+                            13 => "XIc - Estudios complementarios parte C",
+                            14 => "XId - Estudios complementarios parte D"
+                        ];
+                        
+                        // Convertir números romanos al entero correspondiente
+                        $romanToInteger = [
+                            "I" => 1, "II" => 2, "III" => 3, "IV" => 4, "V" => 5, 
+                            "VI" => 6, "VII" => 7, "VIII" => 8, "IX" => 9, "X" => 10,
+                            "XIa" => 11, "XIb" => 12, "XIc" => 13, "XId" => 14
+                        ];
+                        $currentOption = isset($egresados['opc_titulacion']) ? $romanToInteger[$egresados['opc_titulacion']] : "";
 
-            foreach ($titOptions as $key => $label) {
-                $selected = ($currentOption == $key) ? 'selected' : '';
-                echo "<option value='$key' $selected>$label</option>";
-            }
-            ?>
-        </select>
-    </div>
-    <div class="col-md-4"></div>
-</div>
+                        foreach ($titOptions as $key => $label) {
+                            $selected = ($currentOption == $key) ? 'selected' : '';
+                            echo "<option value='$key' $selected>$label</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
 
+            <br>
+        <!-- Nombre del asesor -->
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-2">
+                    <label for="asesor" class="form-label fw-bold">Nombre del asesor:</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" name="data[asesor]" required="true" class="form-control" id="asesor" value="<?php echo isset($egresados['asesor']) ? $egresados['asesor'] : ''; ?>">
+                </div>
+                <div class="col-md-4"></div>
+            </div>
             <br>
 
             <!-- Sinodales -->
