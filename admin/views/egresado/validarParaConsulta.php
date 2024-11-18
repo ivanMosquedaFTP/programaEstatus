@@ -11,7 +11,13 @@
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <input type="number" name="data[status]" required="true" class="form-control" id="status" aria-describedby="statusHelp" min="0" max="6">
+                    <select name="data[status]" required="true" class="form-control" id="status">
+                        <?php
+                        for ($i = 0; $i <= 6; $i++) {
+                            echo "<option value=\"$i\">$i</option>";
+                        }
+                        ?>
+                    </select>
                 </div>
                 <div class="col-md-4"></div>
             </div>
@@ -27,4 +33,4 @@
     </section>
 </main>
 
-<?php require('views/footer_home.php'); ?>
+<?php require('views/footer.php'); ?>
