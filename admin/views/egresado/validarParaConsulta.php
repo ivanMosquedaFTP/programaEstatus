@@ -11,11 +11,21 @@
       <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-          <select name="data[status]" required="true" class="form-control" id="status">
+          <select name="data[status]" required class="form-control" id="status">
             <?php
-            /*echo ("<option value=$i>$i</option>");*/
-            for ($i = 0; $i <= 6; $i++) {
-              echo "<option value=\"$i\">$i.- echo($data[status]);</option>";
+            $statusDescriptions = [
+              0 => "En espera de documentos",
+              1 => "Realizando oficio de aprobavacion",
+              2 => "Oficio de aprovacion entregado",
+              3 => "Oficio de no inconvenencia recibido",
+              4 => "Realizando oficio de aviso de acto recepcional",
+              5 => "Envio de aviso de acto recepcional a egresado",
+              6 => "Titulado"
+            ];
+
+            foreach ($statusDescriptions as $status => $description) {
+              $selected = isset($data['status']) && $data['status'] == $status ? "selected" : "";
+              echo "<option value=\"$status\" $selected>$status.- $description</option>";
             }
             ?>
           </select>
@@ -26,7 +36,7 @@
       <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-          <input type="submit" name="data[enviar]" required="true" class="btn btn-primary w-100" value="Consultar">
+          <input type="submit" name="data[enviar]" class="btn btn-primary w-100" value="Consultar">
         </div>
         <div class="col-md-4"></div>
       </div>
