@@ -1,162 +1,179 @@
-<?php require('views/header.php'); ?>
+<?php 
+    require('views/headerWithoutJumbotron.php');
+?>
+
 <center>
     <h1>Modificar solicitud de titulación</h1>
 </center>
-
+<br> <br>
 <main>
     <section class="formulario">
-        <form action="egresado.php?accion=modificar" method="POST" onsubmit="return validarSinodales();">
+        <?php if (isset($_GET['error']) && $_GET['error'] === 'sinodales_repetidos'): ?>
+            <p style="color: red; text-align: center;">Error: Los nombres de los sinodales no deben repetirse.</p>
+        <?php endif; ?>
+        <form action="egresado.php?accion=modificar" method="POST" onsubmit="return validarFormulario();">
             <input type="hidden" name="data[no_control]" value="<?php echo $egresados['no_control']; ?>">
-            <!-- nombre completo -->
+
+            <!-- Nombre completo -->
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-4">
+                <div class="col-md-4"></div>
+                <div class="col-md-2">
                     <label for="nombre" class="form-label fw-bold">Nombre completo:</label>
                 </div>
-                <div class="col-md-4">
-                    <input type="text" name="data[nombre_completo]" required="true" class="form-control" id="nombre" value="<?php if(isset($egresados["nombre_completo"])):echo($egresados['nombre_completo']);endif; ?>">
+                <div class="col-md-2">
+                    <input type="text" name="data[nombre_completo]" required="true" class="form-control" id="nombre" value="<?php echo isset($egresados['nombre_completo']) ? $egresados['nombre_completo'] : ''; ?>">
                 </div>
-                <div class="col-md-2"></div>
+                <div class="col-md-4"></div>
             </div>
             <br>
 
-            <!-- especialidad -->
+            <!-- Especialidad -->
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-4">
+                <div class="col-md-4"></div>
+                <div class="col-md-2">
                     <label for="especialidad" class="form-label fw-bold">Especialidad:</label>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <select name="data[especialidad]" required="true" class="form-select" id="especialidad">
                         <option value="" selected>Seleccione una opción</option>
-                        <option value="1">IINFO</option>
-                        <option value="2">LINFO</option>
-                        <option value="3">ISC</option>
+                        <option value="1" <?php echo ($egresados['especialidad'] == "IINFO") ? 'selected' : ''; ?>>IINFO</option>
+                        <option value="2" <?php echo ($egresados['especialidad'] == "LINFO") ? 'selected' : ''; ?>>LINFO</option>
+                        <option value="3" <?php echo ($egresados['especialidad'] == "ISC") ? 'selected' : ''; ?>>ISC</option>
                     </select>
                 </div>
-                <div class="col-md-2"></div>
+                <div class="col-md-4"></div>
             </div>
             <br>
 
-            <!-- nombre del proyecto -->
+            <!-- Nombre del proyecto -->
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-4">
+                <div class="col-md-4"></div>
+                <div class="col-md-2">
                     <label for="nombre_proyecto" class="form-label fw-bold">Nombre del proyecto:</label>
                 </div>
-                <div class="col-md-4">
-                    <input type="text" name="data[nombre_proyecto]" required="true" class="form-control" id="nombre_proyecto" value="<?php if(isset($egresados["nombre_proyecto"])):echo($egresados['nombre_proyecto']);endif; ?>">
+                <div class="col-md-2">
+                    <input type="text" name="data[nombre_proyecto]" required="true" class="form-control" id="nombre_proyecto" value="<?php echo isset($egresados['nombre_proyecto']) ? $egresados['nombre_proyecto'] : ''; ?>">
                 </div>
-                <div class="col-md-2"></div>
+                <div class="col-md-4"></div>
             </div>
             <br>
 
-            <!-- opcion de titulacion -->
+            <!-- Opción de titulación -->
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-4">
+                <div class="col-md-4"></div>
+                <div class="col-md-2">
                     <label for="opcTitulacion" class="form-label fw-bold">Opción de titulación:</label>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <select name="data[opc_titulacion]" required="true" class="form-select" id="opcTitulacion">
-                        <option value="" selected>Seleccione una opción</option>
-                        <option value="1">I - tesis profesional</option>
-                        <option value="2">II - libros de texto o prototipos didácticos</option>
-                        <option value="3">III - proyecto de investigación</option>
-                        <option value="4">IV - diseño o rediseño de equipo, aparato o maquinaria</option>
-                        <option value="5">V - cursos especiales de titulación</option>
-                        <option value="6">VI - examen global por áreas de conocimiento</option>
-                        <option value="7">VII - memoria de experiencia profesional</option>
-                        <option value="8">VIII - escolaridad por promedio</option>
-                        <option value="9">IX - escolaridad por estudios de posgrado</option>
-                        <option value="10">X - memoria de residencia profesional</option>
-                        <option value="11">XIa - titulación integral</option>
-                        <option value="12">XIb - titulación integral</option>
-                        <option value="13">XIc - titulación integral</option>
-                        <option value="14">XId - titulación integral</option>
+                        <option value="" <?php echo (!isset($egresados['opc_titulacion']) || $egresados['opc_titulacion'] == "") ? 'selected' : ''; ?>>Seleccione una opción</option>
+                        <?php
+                        $titOptions = [
+                            1 => "I - Tesis profesional",
+                            2 => "II - Libros de texto o prototipos didácticos",
+                            3 => "III - Proyecto de investigación",
+                            4 => "IV - Diseño o rediseño de equipo, aparato o maquinaria",
+                            5 => "V - Cursos especiales de titulación",
+                            6 => "VI - Examen global por áreas de conocimiento",
+                            7 => "VII - Memoria de experiencia profesional",
+                            8 => "VIII - Escolaridad por promedio",
+                            9 => "IX - Escolaridad por estudios de posgrado",
+                            10 => "X - Memoria de residencia profesional",
+                            11 => "XIa - Estudios complementarios parte A",
+                            12 => "XIb - Estudios complementarios parte B",
+                            13 => "XIc - Estudios complementarios parte C",
+                            14 => "XId - Estudios complementarios parte D"
+                        ];
+                        
+                        // Convertir números romanos al entero correspondiente
+                        $romanToInteger = [
+                            "I" => 1, "II" => 2, "III" => 3, "IV" => 4, "V" => 5, 
+                            "VI" => 6, "VII" => 7, "VIII" => 8, "IX" => 9, "X" => 10,
+                            "XIa" => 11, "XIb" => 12, "XIc" => 13, "XId" => 14
+                        ];
+                        $currentOption = isset($egresados['opc_titulacion']) ? $romanToInteger[$egresados['opc_titulacion']] : "";
+
+                        foreach ($titOptions as $key => $label) {
+                            $selected = ($currentOption == $key) ? 'selected' : '';
+                            echo "<option value='$key' $selected>$label</option>";
+                        }
+                        ?>
                     </select>
                 </div>
-                <div class="col-md-2"></div>
+                <div class="col-md-4"></div>
             </div>
-            <br>
 
-            <!-- nombre del asesor -->
+            <br>
+        <!-- Nombre del asesor -->
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-4">
-                    <label for="nombre_asesor" class="form-label fw-bold">Nombre del asesor:</label>
+                <div class="col-md-4"></div>
+                <div class="col-md-2">
+                    <label for="asesor" class="form-label fw-bold">Nombre del asesor:</label>
                 </div>
-                <div class="col-md-4">
-                    <input type="text" name="data[asesor]" required="true" class="form-control" id="nombre_asesor" value="<?php if(isset($egresados["asesor"])):echo($egresados['asesor']);endif; ?>">
+                <div class="col-md-2">
+                    <input type="text" name="data[asesor]" required="true" class="form-control" id="asesor" value="<?php echo isset($egresados['asesor']) ? $egresados['asesor'] : ''; ?>">
                 </div>
-                <div class="col-md-2"></div>
+                <div class="col-md-4"></div>
             </div>
             <br>
 
-            <!-- sinodal 1 -->
-            <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-4">
-                <label for="nombre_sinodal1" class="form-label fw-bold">Sinodal 1:</label>
-            </div>
-            <div class="col-md-4">
-                <input type="text" name="data[sinodal1]" required="true" class="form-control" id="nombre_sinodal1" value="<?php if(isset($egresados["sinodal1"])):echo($egresados['sinodal1']);endif; ?>">
-            </div>
-            <div class="col-md-2"></div>
-            </div>
-            <br>
+            <!-- Sinodales -->
+            <?php
+            $sinodales = ['sinodal1', 'sinodal2', 'sinodal3'];
+            foreach ($sinodales as $index => $sinodal) {
+                $label = "Sinodal " . ($index + 1);
+                ?>
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-2">
+                        <label for="nombre_<?php echo $sinodal; ?>" class="form-label fw-bold"><?php echo $label; ?>:</label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" name="data[<?php echo $sinodal; ?>]" required="true" class="form-control" id="nombre_<?php echo $sinodal; ?>" value="<?php echo isset($egresados[$sinodal]) ? $egresados[$sinodal] : ''; ?>">
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <br>
+                <?php
+            }
+            ?>
 
-            <!-- sinodal 2 -->
+            <!-- Estatus -->
             <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-4">
-                <label for="nombre_sinodal2" class="form-label fw-bold">Sinodal 2:</label>
-            </div>
-            <div class="col-md-4">
-                <input type="text" name="data[sinodal2]" required="true" class="form-control" id="nombre_sinodal2" value="<?php if(isset($egresados["sinodal2"])):echo($egresados['sinodal2']);endif; ?>">
-            </div>
-            <div class="col-md-2"></div>
-            </div>
-            <br>
-
-            <!-- sinodal 3 -->
-            <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-4">
-                <label for="nombre_sinodal3" class="form-label fw-bold">Sinodal 3:</label>
-            </div>
-            <div class="col-md-4">
-                <input type="text" name="data[sinodal3]" required="true" class="form-control" id="nombre_sinodal3" value="<?php if(isset($egresados["sinodal3"])):echo($egresados['sinodal3']);endif; ?>">
-            </div>
-            <div class="col-md-2"></div>
-            </div>
-            <br>
-
-            <!-- estatus -->
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-4">
+                <div class="col-md-4"></div>
+                <div class="col-md-2">
                     <label for="estatus" class="form-label fw-bold">Estatus:</label>
                 </div>
-                <div class="col-md-4">
-                    <select name="data[status]" required="true" class="form-select" id="estatus">
+                <div class="col-md-2">
+                    <select name="data[status]" required="true" class="form-select" id="estatus" onchange="toggleFechaExamen();">
                         <option value="" selected>Seleccione una opción</option>
-                        <option value="1">1 - realizando oficio de aprobación</option>
-                        <option value="2">2 - oficio de aprobación entregado</option>
-                        <option value="3">3 - oficio de NO INCONVENIENCIA recibido</option>
-                        <option value="4">4 - realizando oficio de AVISO DE ACTO RECEPCIONAL</option>
-                        <option value="5">5 - envío de AVISO DE ACTO RECEPCIONAL a egresado y jurado</option>
-                        <option value="6">6 - titulado</option>
+                        <?php for ($i = 1; $i <= 6; $i++) {
+                            $selected = ($egresados['status'] == $i) ? 'selected' : '';
+                            echo "<option value='$i' $selected>$i</option>";
+                        } ?>
                     </select>
                 </div>
-                <div class="col-md-2"></div>
+                <div class="col-md-4"></div>
+            </div>
+            <br>
+
+            <!-- Fecha de examen -->
+            <div class="row" id="fechaExamenRow" style="display: none;">
+                <div class="col-md-4"></div>
+                <div class="col-md-2">
+                    <label for="fecha_examen" class="form-label fw-bold">Fecha de examen:</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="date" name="data[fecha_examen]" class="form-control" id="fecha_examen" value="<?php echo isset($egresados['fecha_examen']) ? $egresados['fecha_examen'] : ''; ?>">
+                </div>
+                <div class="col-md-4"></div>
             </div>
             <br>
 
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <input type="submit" name="data[enviar]" required="true" class="btn btn-primary w-100" value="Capturar">
+                    <input type="submit" name="data[enviar]" required="true" class="btn btn-primary w-100" value="Modificar">
                 </div>
                 <div class="col-md-4"></div>
             </div>
@@ -165,6 +182,30 @@
 </main>
 
 <script>
+    function toggleFechaExamen() {
+        const estatus = parseInt(document.getElementById('estatus').value.trim());
+        const fechaExamenRow = document.getElementById('fechaExamenRow');
+        if (estatus >= 3) {
+            fechaExamenRow.style.display = "flex";
+        } else {
+            fechaExamenRow.style.display = "none";
+            document.getElementById('fecha_examen').value = "";
+        }
+    }
+
+    window.onload = toggleFechaExamen;
+
+    function validarFormulario() {
+        const estatus = parseInt(document.getElementById('estatus').value.trim());
+        const fechaExamen = document.getElementById('fecha_examen').value.trim();
+
+        if (estatus >= 3 && !fechaExamen) {
+            alert("Debe capturar la fecha de examen si el estatus es igual o mayor a 3.");
+            return false;
+        }
+        return validarSinodales();
+    }
+
     function validarSinodales() {
         const sinodal1 = document.getElementById('nombre_sinodal1').value.trim();
         const sinodal2 = document.getElementById('nombre_sinodal2').value.trim();
