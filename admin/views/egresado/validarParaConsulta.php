@@ -13,8 +13,9 @@
                 <div class="col-md-4">
                     <select name="data[status]" required="true" class="form-control" id="status">
                         <?php
+                            echo(<option></>);
                         for ($i = 0; $i <= 6; $i++) {
-                            echo "<option value=\"$i\">$i</option>";
+                            echo "<option value=\"$i\">$i.- echo($data[status]);</option>";
                         }
                         ?>
                     </select>
