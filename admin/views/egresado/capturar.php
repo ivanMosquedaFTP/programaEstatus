@@ -19,7 +19,7 @@ require('views/headerWithoutJumbotron.php');
           <label for="noControl" class="form-label fw-bold">Número de control:</label>
         </div>
         <div class="col-md-2">
-          <input type="number" name="data[no_control]" required="true" class="form-control" id="noControl" maxlength="1" max="8">
+          <input type="text" name="data[no_control]" required class="form-control" id="noControl" maxlength="8" oninput="validarNoControl(this);">
         </div>
         <div class="col-md-4"></div>
       </div>
@@ -216,6 +216,14 @@ require('views/headerWithoutJumbotron.php');
       return false;
     }
     return true;
+  }
+
+  function validarNoControl(input) {
+    input.value = input.value.replace(/\D/g, '');
+
+    if (input.value.length > 8) {
+      input.value = input.value.slice(0, 8);
+    }
   }
 
   function toggleFechaExamen() {
