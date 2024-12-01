@@ -68,22 +68,23 @@
                     <select name="data[opc_titulacion]" required="true" class="form-select" id="opcTitulacion">
                         <option value="" <?php echo (!isset($egresados['opc_titulacion']) || $egresados['opc_titulacion'] == "") ? 'selected' : ''; ?>>Seleccione una opción</option>
                         <?php
-                        $titOptions = [
-                            1 => "I - Tesis profesional",
-                            2 => "II - Libros de texto o prototipos didácticos",
-                            3 => "III - Proyecto de investigación",
-                            4 => "IV - Diseño o rediseño de equipo, aparato o maquinaria",
-                            5 => "V - Cursos especiales de titulación",
-                            6 => "VI - Examen global por áreas de conocimiento",
-                            7 => "VII - Memoria de experiencia profesional",
-                            8 => "VIII - Escolaridad por promedio",
-                            9 => "IX - Escolaridad por estudios de posgrado",
-                            10 => "X - Memoria de residencia profesional",
-                            11 => "XIa - Estudios complementarios parte A",
-                            12 => "XIb - Estudios complementarios parte B",
-                            13 => "XIc - Estudios complementarios parte C",
-                            14 => "XId - Estudios complementarios parte D"
-                        ];
+                       $titOptions = [
+                        1 => "I - Tesis profesional",
+                        2 => "II - Prototipos didácticos",
+                        3 => "III - Proyecto de investigación",
+                        4 => "IV - Diseño de equipos",
+                        5 => "V - Cursos especiales",
+                        6 => "VI - Examen global",
+                        7 => "VII - Memoria profesional",
+                        8 => "VIII - Escolaridad por promedio",
+                        9 => "IX - Escolaridad por estudios de posgrado",
+                        10 => "X - Memoria de residencia profesional",
+                        11 => "XIa - Titulación integral",
+                        12 => "XIb - Proyecto",
+                        13 => "XIc - Residencias",
+                        14 => "XId - Ceneval"
+                    ];
+                    
                         
                         // Convertir números romanos al entero correspondiente
                         $romanToInteger = [
