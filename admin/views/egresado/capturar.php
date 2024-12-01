@@ -76,7 +76,7 @@ require('views/headerWithoutJumbotron.php');
           <label for="opcTitulacion" class="form-label fw-bold">Opción de titulación:</label>
         </div>
         <div class="col-md-2">
-          <select name="data[opc_titulacion]" required="true" class="form-select" id="opcTitulacion">
+        <select name="data[opc_titulacion]" required="true" class="form-select" id="opcTitulacion">
             <option selected>Seleccione una opción</option>
             <option value="1">I - Tesis profesional</option>
             <option value="2">II - Prototipos didácticos</option>
@@ -89,10 +89,15 @@ require('views/headerWithoutJumbotron.php');
             <option value="9">IX - Escolaridad por estudios de posgrado</option>
             <option value="10">X - Memoria de residencia profesional</option>
             <option value="11">XIa - Titulacion integral</option>
+            <option value="11">XIb - Proyecto</option>
+            <option value="11">XIc - Residencias</option>
+            <option value="11">XId - Ceneval</option>
+
             <!-- <option value="12">XIb - Proyecto de innovacion</option>
               <option value="13">XIc - Proyecto de investigación</option>
               <option value="14">XId - Proyecto de investigación</option> -->
           </select>
+
         </div>
         <div class="col-md-4"></div>
       </div>
