@@ -105,7 +105,7 @@
 </head>
 
 <body>
-    <a href="index.php" class="volver">Volver a inicio</a>
+    <a href="../../egresado.php" class="volver">Volver a inicio</a>
     <div class="container">
         <h1>Página en Construcción</h1>
         <p>Estamos trabajando en algo increíble. ¡Vuelve pronto!</p>

@@ -1,4 +1,4 @@
-  <?php require('views/header.php');?>
+<?php require(__DIR__ . '/../header.php');?>
   <main>
     <section>
       <div class="row">
@@ -18,4 +18,4 @@
       </div>
     </section>
   </main>
-<?php require('views/footer.php');?>
+<?php require(__DIR__ . '/../footer.php');?>
